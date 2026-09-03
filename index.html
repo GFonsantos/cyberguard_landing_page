@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formação em Cibersegurança | CyberGuard Academy</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- External JS -->
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8s0 0 0 0z"/>
+                </svg>
+                <span>CyberGuard</span>
+            </a>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Abrir Menu">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#modulos">Conteúdo</a>
+                <a href="#para-quem">Para Quem É</a>
+                <a href="#instrutor">Instrutor</a>
+                <a href="#faq">Dúvidas</a>
+                <a href="#preco" class="btn btn-secondary mobile-only-btn">Área do Aluno</a>
+            </nav>
+            
+            <a href="#preco" class="btn btn-secondary desktop-only-btn">Área do Aluno</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <span class="hero-badge">⚡ Formação Prática em Cibersegurança</span>
+                <h1>Domine a Segurança Cibernética e Torne-se Imune às Ameaças do Mercado</h1>
+                <p>Aprenda a simular ataques reais, defender infraestruturas críticas e construir uma carreira de alta demanda e salários acima da média no mercado global.</p>
+                
+                <a href="#preco" class="btn btn-primary">Quero Garantir Minha Vaga</a>
+
+                <!-- VSL / Video Placeholder -->
+                <div class="video-container" id="videoContainer">
+                    <div class="video-placeholder" id="playVideoBtn">
+                        <div class="play-btn"></div>
+                        <p>Clique para assistir à apresentação do curso (5 min)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof & Stats Banner -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>+2.500</h3>
+                        <p>Alunos Formados</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4.9/5 ★</h3>
+                        <p>Avaliação da Comunidade</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Prático em Lab Real</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>R$ 12k+</h3>
+                        <p>Média Salarial na Área</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modules Section -->
+        <section class="modules" id="modulos">
+            <div class="container">
+                <h2 class="section-title">O Que Você Vai <span class="highlight-cyan">Aprender</span></h2>
+                <p class="section-subtitle">Uma jornada estruturada do básico ao avançado com técnicas utilizadas por Hackers Éticos do mercado corporativo.</p>
+                
+                <div class="modules-grid">
+                    <article class="module-card">
+                        <div class="module-icon">01</div>
+                        <h3>Fundamentos & Defesa de Redes</h3>
+                        <p>Arquitetura de redes, protocolos seguros, análise de tráfego com Wireshark e configuração avançada de Firewalls.</p>
+                    </article>
+
+                    <article class="module-card">
+                        <div class="module-icon">02</div>
+                        <h3>Ethical Hacking & Pentest</h3>
+                        <p>Metodologias de teste de invasão, recon, footprinting e utilização avançada do Kali Linux na prática.</p>
+                    </article>
+
+                    <article class="module-card">
+                        <div class="module-icon">03</div>
+                        <h3>Análise de Vulnerabilidades</h3>
+                        <p>Identificação e exploração de brechas em aplicações Web (OWASP Top 10), SQL Injection, XSS e CSRF.</p>
+                    </article>
+
+                    <article class="module-card">
+                        <div class="module-icon">04</div>
+                        <h3>Forense & Incident Response</h3>
+                        <p>Como detectar invasões em tempo real, isolar ameaças, analisar artefatos de malware e mitigar ataques de Ransomware.</p>
+                    </article>
+
+                    <article class="module-card">
+                        <div class="module-icon">05</div>
+                        <h3>Segurança em Nuvem (Cloud Security)</h3>
+                        <p>Proteção de ambientes AWS e Azure, gestão de identidades (IAM) e segurança em containers Docker/Kubernetes.</p>
+                    </article>
+
+                    <article class="module-card">
+                        <div class="module-icon">06</div>
+                        <h3>DevSecOps & Codificação Segura</h3>
+                        <p>Integração de testes de segurança automatizados em pipelines CI/CD e boas práticas de desenvolvimento imune.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Audience Section -->
+        <section class="target" id="para-quem">
+            <div class="container">
+                <h2 class="section-title">Para Quem É Este <span class="highlight-cyan">Treinamento</span></h2>
+                <p class="section-subtitle">Projetado especificamente para quem deseja crescer rapidamente na área de tecnologia.</p>
+
+                <div class="target-list">
+                    <div class="target-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Desenvolvedores Web/Software</strong> que desejam aprender a criar sistemas seguros e migrar para a área de DevSecOps.</span>
+                    </div>
+                    <div class="target-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Profissionais de TI e Infraestrutura</strong> em busca de transição de carreira para Cyber Security com foco em altas remunerações.</span>
+                    </div>
+                    <div class="target-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Iniciantes em Tecnologia</strong> com conhecimento básico em computação que desejam começar do zero na área mais promissora da década.</span>
+                    </div>
+                    <div class="target-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Analistas de Suporte e Redes</strong> querendo conquistar certificações internacionais e posições de liderança técnica.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instructor Section -->
+        <section class="instructor" id="instrutor">
+            <div class="container">
+                <div class="instructor-box">
+                    <img src="https://via.placeholder.com/300x300/1C2541/00B4D8?text=Especialista" alt="Foto do Instrutor" class="instructor-img">
+                    <div class="instructor-info">
+                        <h3>Carlos Andrade</h3>
+                        <p class="instructor-role">Head of Cybersecurity & Principal Pentester</p>
+                        <p class="instructor-bio">Com mais de 12 anos de experiência liderando equipes de resposta a incidentes em multinacionais financeiras, já identificou e corrigiu falhas críticas em grandes plataformas internacionais. Atualmente atua como consultor de segurança e já formou mais de 2.500 especialistas.</p>
+                        <div class="credentials">
+                            <span class="badge">CISSP</span>
+                            <span class="badge">CEH Master</span>
+                            <span class="badge">OSCP Certified</span>
+                            <span class="badge">+12 anos Exp.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing" id="preco">
+            <div class="container">
+                <div class="pricing-card">
+                    <span class="pricing-tag">Condição Especial de Lançamento</span>
+                    <p class="price-anchor">De R$ 1.997,00 por apenas</p>
+                    <div class="price-main">12x R$ 49,70</div>
+                    <p class="price-subtitle">ou R$ 497,00 à vista no PIX</p>
+
+                    <ul class="benefits-list">
+                        <li><span class="highlight-green">✓</span> Acesso vitalício ao curso e atualizações</li>
+                        <li><span class="highlight-green">✓</span> Acesso ao Laboratório Virtual Prático</li>
+                        <li><span class="highlight-green">✓</span> Comunidade Privada no Discord com MENTORIA</li>
+                        <li><span class="highlight-green">✓</span> Certificado de Conclusão Reconhecido (80h)</li>
+                        <li><span class="highlight-green">✓</span> Bônus: Modelo de Currículo para Vagas Internacionais</li>
+                    </ul>
+
+                    <a href="#" class="btn btn-primary btn-full">Garantir Minha Vaga Agora</a>
+
+                    <div class="guarantee-box">
+                        <span>🛡️</span>
+                        <span><strong>Garantia Incondicional de 7 Dias.</strong> Teste sem riscos. Se não gostar, devolvemos 100% do valor.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <h2 class="section-title">Perguntas <span class="highlight-cyan">Frequentes</span></h2>
+                <p class="section-subtitle">Tire suas dúvidas antes de dar o próximo passo na sua carreira.</p>
+
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>Preciso ter conhecimento prévio em programação?</summary>
+                        <p>Não é obrigatório. O curso aborda a lógica necessária e os scripts essenciais do zero. Ter conhecimento básico de informática e interesse pela área é o suficiente para acompanhar os conteúdos.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Como funcionam os laboratórios práticos?</summary>
+                        <p>Disponibilizamos ambientes virtuais prontos e seguros para download, além de servidores em nuvem onde você poderá praticar simulações reais de ataque e defesa de forma totalmente controlada.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Por quanto tempo terei acesso ao treinamento?</summary>
+                        <p>O seu acesso é vitalício. Você pode assistir às aulas no seu ritmo, quantas vezes quiser, e terá acesso a todas as atualizações futuras sem nenhum custo adicional.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>O certificado é reconhecido pelo mercado?</summary>
+                        <p>Sim. Ao completar 100% dos módulos e desafios práticos, você receberá um certificado de 80 horas detalhando todas as competências técnicas adquiridas para enriquecer seu currículo e LinkedIn.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Suporte ao Aluno</a>
+            </div>
+            <p>&copy; 2026 CyberGuard Academy. Todos os direitos reservados. Este site não é afiliado ao Facebook ou qualquer entidade do Meta.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
