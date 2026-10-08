@@ -6,14 +6,15 @@
 
 ---
 
-## 📌 Sumário
-- [Sobre o Projeto](#-sobre-o-projeto)
-- [Funcionalidades](#-funcionalidades)
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Como Executar o Projeto](#-como-executar-o-projeto)
-- [Estrutura de Pastas](#-estrutura-de-pastas)
-- [Como Contribuir](#-como-contribuir)
-- [Licença](#-licença)
+Gil, esse sumário será a estrutura do README.md do Valkore Desktop. Eu sugiro preencher cada seção assim:
+Sobre o Projeto: apresentar o Valkore Desktop e sua finalidade de facilitar a gestão de pequenos negócios.
+Funcionalidades: cadastro da empresa, gestão financeira, categorias, dashboard e licenciamento.
+Tecnologias Utilizadas: VB.NET, .NET 10, Windows Forms, SQLite e Visual Studio.
+Como Executar o Projeto: pré-requisitos, abertura da solução, restauração dos pacotes, compilação e execução.
+Estrutura de Pastas: explicar a organização em UI, SRV, REPO, INFRA e DOM.
+Como Contribuir: orientar sobre sugestões, identificação de problemas e contribuições ao código.
+Licença: informar as condições de uso, distribuição e modificação do software.
+Minha recomendação: vamos documentar o projeto de forma profissional, mas sem apresentar funcionalidades futuras como se já estivessem concluídas.
 
 ---
 
