@@ -1,677 +1,688 @@
 /* CSS Custom Properties (Theme Variables) */
-:root {
-    --bg-primary: #0B132B;
-    --bg-surface: #1C2541;
-    --bg-surface-hover: #232F52;
-    --text-main: #EDF2F4;
-    --text-muted: #8D99AE;
-    --accent-cyan: #00B4D8;
-    --accent-green: #06D6A0;
-    --accent-glow-cyan: rgba(0, 180, 216, 0.25);
-    --accent-glow-green: rgba(6, 214, 160, 0.3);
-    --border-color: rgba(255, 255, 255, 0.08);
-    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    --container-width: 1140px;
-    --radius-sm: 6px;
-    --radius-md: 12px;
-    --radius-lg: 20px;
-}
-
-/* Reset & Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: var(--bg-primary);
-    color: var(--text-main);
-    font-family: var(--font-family);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-ul {
-    list-style: none;
-}
-
-.container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Typography Utilities */
-.section-title {
-    font-size: 2.25rem;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 1rem;
-    letter-spacing: -0.5px;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: var(--text-muted);
-    max-width: 650px;
-    margin: 0 auto 3rem auto;
-    font-size: 1.1rem;
-}
-
-.highlight-cyan { color: var(--accent-cyan); }
-.highlight-green { color: var(--accent-green); }
-
-/* Component: Buttons */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 28px;
-    font-weight: 700;
-    font-size: 1rem;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-}
-
-.btn-primary {
-    background-color: var(--accent-green);
-    color: #0B132B;
-    box-shadow: 0 4px 20px var(--accent-glow-green);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 28px rgba(6, 214, 160, 0.5);
-    background-color: #05c290;
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--text-main);
-    border: 1px solid var(--accent-cyan);
-}
-
-.btn-secondary:hover {
-    background-color: rgba(0, 180, 216, 0.1);
-    color: var(--accent-cyan);
-}
-
-.btn-full {
-    width: 100%;
-}
-
-/* Header */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(11, 19, 43, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-color);
-    padding: 16px 0;
-    transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
-}
-
-.header.scrolled {
-    padding: 12px 0;
-    background: rgba(11, 19, 43, 0.95);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.25rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-}
-
-.logo-icon {
-    width: 28px;
-    height: 28px;
-    fill: var(--accent-cyan);
-}
-
-.nav-links {
-    display: flex;
-    gap: 28px;
-    align-items: center;
-}
-
-.nav-links a {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    transition: color 0.2s;
-}
-
-.nav-links a:hover {
-    color: var(--accent-cyan);
-}
-
-.mobile-only-btn {
-    display: none;
-}
-
-/* Mobile Menu Toggle Button */
-.mobile-menu-toggle {
-    display: none;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    z-index: 1001;
-}
-
-.hamburger {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--text-main);
-    position: relative;
-    transition: background 0.3s ease;
-}
-
-.hamburger::before,
-.hamburger::after {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 2px;
-    background: var(--text-main);
-    transition: transform 0.3s ease, top 0.3s ease;
-}
-
-.hamburger::before { top: -7px; }
-.hamburger::after { top: 7px; }
-
-/* Active Hamburger state */
-.mobile-menu-toggle.active .hamburger {
-    background: transparent;
-}
-
-.mobile-menu-toggle.active .hamburger::before {
-    top: 0;
-    transform: rotate(45deg);
-}
-
-.mobile-menu-toggle.active .hamburger::after {
-    top: 0;
-    transform: rotate(-45deg);
-}
-
-/* Hero Section */
-.hero {
-    padding: 160px 0 90px 0;
-    text-align: center;
-    position: relative;
-}
-
-.hero-badge {
-    display: inline-block;
-    padding: 6px 16px;
-    background: rgba(0, 180, 216, 0.1);
-    border: 1px solid var(--accent-cyan);
-    color: var(--accent-cyan);
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 24px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.hero h1 {
-    font-size: 3.25rem;
-    font-weight: 800;
-    line-height: 1.15;
-    max-width: 900px;
-    margin: 0 auto 20px auto;
-    letter-spacing: -1px;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    max-width: 720px;
-    margin: 0 auto 36px auto;
-}
-
-.video-container {
-    margin-top: 50px;
-    position: relative;
-    max-width: 850px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px var(--accent-glow-cyan);
-    background-color: var(--bg-surface);
-    aspect-ratio: 16 / 9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.video-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    color: var(--text-muted);
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-}
-
-.play-btn {
-    width: 70px;
-    height: 70px;
-    background: var(--accent-cyan);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px var(--accent-glow-cyan);
-    transition: transform 0.3s ease;
-}
-
-.play-btn::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 0 10px 18px;
-    border-color: transparent transparent transparent #0B132B;
-    margin-left: 4px;
-}
-
-.video-container:hover .play-btn {
-    transform: scale(1.1);
-}
-
-/* Stats Banner */
-.stats {
-    background-color: var(--bg-surface);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    padding: 40px 0;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    text-align: center;
-}
-
-.stat-item h3 {
-    font-size: 2.25rem;
-    color: var(--accent-cyan);
-    font-weight: 800;
-}
-
-.stat-item p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-top: 4px;
-}
-
-/* Modules Section */
-.modules {
-    padding: 100px 0;
-}
-
-.modules-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
-}
-
-.module-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    padding: 30px;
-    border-radius: var(--radius-md);
-    transition: all 0.3s ease;
-}
-
-.module-card:hover {
-    border-color: var(--accent-cyan);
-    box-shadow: 0 0 20px var(--accent-glow-cyan);
-    transform: translateY(-5px);
-    background-color: var(--bg-surface-hover);
-}
-
-.module-icon {
-    width: 44px;
-    height: 44px;
-    background: rgba(0, 180, 216, 0.1);
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    color: var(--accent-cyan);
-    font-weight: 700;
-}
-
-.module-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-}
-
-.module-card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-}
-
-/* Target Audience Section */
-.target {
-    padding: 80px 0;
-    background-color: rgba(28, 37, 65, 0.4);
-}
-
-.target-list {
-    max-width: 800px;
-    margin: 0 auto;
-    display: grid;
-    gap: 16px;
-}
-
-.target-item {
-    background-color: var(--bg-surface);
-    padding: 20px 24px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    font-size: 1.05rem;
-}
-
-.check-icon {
-    color: var(--accent-green);
-    font-weight: 800;
-    font-size: 1.2rem;
-    flex-shrink: 0;
-}
-
-/* Instructor Section */
-.instructor {
-    padding: 100px 0;
-}
-
-.instructor-box {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 40px;
-    align-items: center;
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    padding: 40px;
-}
-
-.instructor-img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    border: 2px solid var(--accent-cyan);
-}
-
-.instructor-info h3 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-}
-
-.instructor-role {
-    color: var(--accent-cyan);
-    font-weight: 600;
-    margin-bottom: 16px;
-}
-
-.instructor-bio {
-    color: var(--text-muted);
-    margin-bottom: 20px;
-}
-
-.credentials {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.badge {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-color);
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    color: var(--text-main);
-}
-
-/* Pricing Section */
-.pricing {
-    padding: 100px 0;
-}
-
-.pricing-card {
-    max-width: 550px;
-    margin: 0 auto;
-    background-color: var(--bg-surface);
-    border: 2px solid var(--accent-green);
-    box-shadow: 0 0 30px var(--accent-glow-green);
-    border-radius: var(--radius-lg);
-    padding: 48px;
-    text-align: center;
-    position: relative;
-}
-
-.pricing-tag {
-    position: absolute;
-    top: -16px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--accent-green);
-    color: #0B132B;
-    font-weight: 800;
-    font-size: 0.8rem;
-    padding: 4px 16px;
-    border-radius: 20px;
-    text-transform: uppercase;
-}
-
-.price-anchor {
-    text-decoration: line-through;
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-top: 10px;
-}
-
-.price-main {
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--text-main);
-    margin: 10px 0;
-}
-
-.price-subtitle {
-    color: var(--accent-green);
-    font-weight: 600;
-    margin-bottom: 28px;
-}
-
-.benefits-list {
-    text-align: left;
-    margin-bottom: 32px;
-    display: grid;
-    gap: 12px;
-}
-
-.benefits-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-}
-
-.guarantee-box {
-    margin-top: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-}
-
-/* FAQ Section */
-.faq {
-    padding: 90px 0;
-    background-color: rgba(28, 37, 65, 0.2);
-}
-
-.faq-list {
-    max-width: 750px;
-    margin: 0 auto;
-    display: grid;
-    gap: 16px;
-}
-
-details {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
-    padding: 16px 20px;
-    transition: all 0.2s ease;
-}
-
-details[open] {
-    border-color: var(--accent-cyan);
-}
-
-summary {
-    font-weight: 600;
-    font-size: 1.05rem;
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-summary::-webkit-details-marker {
-    display: none;
-}
-
-summary::after {
-    content: '+';
-    font-size: 1.4rem;
-    color: var(--accent-cyan);
-    transition: transform 0.2s ease;
-}
-
-details[open] summary::after {
-    content: '-';
-}
-
-details p {
-    margin-top: 12px;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/* Footer */
-.footer {
-    border-top: 1px solid var(--border-color);
-    padding: 50px 0;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.footer-links a:hover {
-    color: var(--accent-cyan);
-}
-
-/* Responsive Breakpoints */
-@media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: block;
-    }
-
-    .desktop-only-btn {
-        display: none;
-    }
-
-    .mobile-only-btn {
-        display: inline-flex;
-        margin-top: 10px;
-        width: 100%;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 65px;
-        left: 0;
-        width: 100%;
-        background-color: var(--bg-primary);
-        border-bottom: 1px solid var(--border-color);
-        flex-direction: column;
-        padding: 24px;
-        gap: 20px;
-        transform: translateY(-150%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-    }
-
-    .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .hero h1 { font-size: 2.25rem; }
-    .hero p { font-size: 1rem; }
-    .instructor-box { grid-template-columns: 1fr; text-align: center; }
-    .instructor-img { height: 220px; }
-    .credentials { justify-content: center; }
-    .pricing-card { padding: 32px 20px; }
-    .price-main { font-size: 2.25rem; }
+/* ═══════════════════════════════════════════════════════════════════════════
+   ÍNDICE DO CSS
+   [01] TOKENS ................. variáveis de design da identidade Valkore
+   [02] RESET & BASE ........... normalização, scrollbar, foco visível
+   [03] TIPOGRAFIA/UTILITÁRIOS .. escala, cores, eyebrow, .sr (acessibilidade)
+   [04] KEYFRAMES GLOBAIS ...... catálogo de todas as animações da página
+   [05] [F-01] PROGRESSO ....... barra dourada que acompanha o scroll
+   [06] [F-02][F-03] NAV ....... navbar scroll-driven + menu checkbox
+   [F-14] CTA "moldura viva" ................ cometa dourado orbitando o botão
+   [08] HERO ................... [F-05] entrada em cascata on-load
+   [09] MOCKUP DO APP .......... janela, sidebar, KPIs, levitação + tilt
+   [10] [F-06] ODÔMETRO ........ contadores com dígitos rolantes
+   [11] [F-07][F-08] BARRAS .... gráfico cresce + tooltip por coluna
+   [12] ANTES/DEPOIS ........... planilha "instável" vs Valkore firme
+   [13] FUNCIONALIDADES ........ [F-11] ícones que se redesenham
+   [14] [F-09] DEMO/TABS ....... abas via radio + painéis re-animados
+   [15] LANÇAMENTOS ............ tabela com hover deslizante
+   [16] [F-10] FLUXO SVG ....... linhas que se desenham + zonas de leitura
+   [17] SEGURANÇA .............. cards + redraw de ícones
+   [18] [F-12] BENEFÍCIOS ...... accordion <details> animado (0fr→1fr)
+   [19] CTA + RODAPÉ
+   [20] RESPONSIVO + REDUCED MOTION
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── [01] TOKENS ─ design tokens oficiais da identidade Valkore ─────────── */
+:root{
+  --vk-bg:#08090B; --vk-surface:#111317; --vk-gold:#D4A72C; --vk-gold-light:#F0C85A;
+  --vk-text:#F7F7F5; --vk-muted:#8D9096; --vk-border:#292D33;
+  --vk-receita:#2FBF71; --vk-despesa:#E68A2E; --vk-danger:#D95757;
+  --vk-surface-2:#171A20; --vk-sidebar:#0D0F12;
+  --font-display:'Space Grotesk',sans-serif;
+  --font-body:'Instrument Sans',-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+/* ── [02] RESET & BASE ───────────────────────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--vk-bg);color:var(--vk-text);font-family:var(--font-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:rgba(212,167,44,.28)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--vk-gold);outline-offset:3px;border-radius:4px}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-thumb{background:#23272D;border-radius:8px;border:2px solid var(--vk-bg)}
+.container{max-width:1100px;margin-inline:auto;padding-inline:clamp(20px,5vw,44px)}
+.section{padding-block:clamp(56px,7vw,88px)}
+section[id]{scroll-margin-top:76px}
+html{scroll-snap-type:y proximity}
+main > section, footer{scroll-snap-align:start}
+
+/* ── [03] TIPOGRAFIA & UTILITÁRIOS ────────────────────────────────────────── */
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.12;letter-spacing:-.02em}
+.h1{font-size:clamp(2.4rem,5.6vw,3.9rem);letter-spacing:-.03em}
+.h2{font-size:clamp(1.6rem,3.2vw,2.3rem);letter-spacing:-.025em}
+.lead{color:var(--vk-muted);font-size:clamp(.98rem,1.3vw,1.08rem);max-width:54ch}
+.caption{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--vk-muted)}
+.num{font-variant-numeric:tabular-nums}
+.c-receita{color:var(--vk-receita)}.c-despesa{color:var(--vk-despesa)}.c-gold{color:var(--vk-gold)}
+.eyebrow{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--vk-muted);display:flex;align-items:center;gap:.9em;margin-bottom:20px}
+.eyebrow b{color:var(--vk-gold);font-weight:500}
+.eyebrow::after{content:"";width:30px;height:1px;background:var(--vk-border)}
+/* .sr — mantém checkboxes/radios focáveis (navegação por setas) fora da tela */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* ── [04] KEYFRAMES GLOBAIS — catálogo de animações ───────────────────────── */
+/* Reveal genérico ([F-04]) · entrada do hero ([F-05]) · painéis/odômetro ([F-06/09]) */
+@keyframes vk-reveal{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes vk-word{from{opacity:0;transform:translateY(.6em)}to{opacity:1;transform:none}}
+@keyframes vk-panel{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes vk-menu{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+/* Odômetro ([F-06]): o bloco de 10 dígitos desliza até o dígito-alvo (--d) */
+@keyframes vk-roll{from{transform:translateY(0)}to{transform:translateY(calc(var(--d) * -1em))}}
+/* Barras ([F-07]): crescem a partir da base */
+@keyframes vk-grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+/* Linhas do fluxo ([F-10]): desenhadas por stroke-dashoffset (pathLength=1) */
+@keyframes vk-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+/* Ícones ([F-11]): apagam e se redesenham no hover */
+@keyframes vk-redraw{0%{stroke-dashoffset:0}45%{stroke-dashoffset:1}100%{stroke-dashoffset:0}}
+/* Ambient / decorativo ([F-13]) */
+/* Botão CTA ([F-14]): cometa dourado orbitando a moldura — @property anima
+   o âNGULO do conic-gradient; halo do CTA final respira junto */
+@keyframes vk-orbit{to{--vk-orbit:360deg}}
+@keyframes vk-halo{0%,100%{box-shadow:0 10px 30px -14px rgba(212,167,44,.28)}50%{box-shadow:0 16px 44px -12px rgba(212,167,44,.5)}}
+@keyframes vk-pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,167,44,.0)}50%{box-shadow:0 10px 34px -8px rgba(212,167,44,.45)}}
+@keyframes vk-breathe{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes vk-blink{50%{opacity:.25}}
+@keyframes vk-err{0%,100%{color:var(--vk-danger)}50%{color:#5A5F66}}
+/* Scroll-driven ([F-01/02]) */
+@keyframes vk-progress{to{transform:scaleX(1)}}
+@keyframes vk-navsolid{to{background:rgba(8,9,11,.86);border-color:var(--vk-border);backdrop-filter:blur(12px)}}
+/* Chat de atendimento ([F-15]) */
+@keyframes vk-chat-in{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes vk-type-hide{0%,55%{opacity:1}60%,100%{opacity:0}}
+
+/* ── [05] [F-01] BARRA DE PROGRESSO DE LEITURA ────────────────────────────── */
+/* Fica fixa no topo e cresce junto com o scroll (animation-timeline: scroll).
+   Browsers sem suporte → display:none (fallback invisível). */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:70;background:var(--vk-gold);transform-origin:0 50%;transform:scaleX(0)}
+@supports (animation-timeline: scroll()){
+  .progress{animation:vk-progress linear both;animation-timeline:scroll()}
+}
+@supports not (animation-timeline: scroll()){.progress{display:none}}
+
+/* ── [06] [F-02/F-03] NAVEGAÇÃO ───────────────────────────────────────────── */
+.nav{position:fixed;inset-inline:0;top:0;z-index:60;border-bottom:1px solid transparent;
+     background:rgba(8,9,11,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+     transition:border-color .4s}
+/* [F-02] Versão scroll-driven: transparente no topo, sólida após ~120px.
+   O fallback acima já entrega a navbar sólida para browsers sem suporte. */
+@supports (animation-timeline: scroll()){
+  .nav{background:rgba(8,9,11,0);backdrop-filter:blur(0px);animation:vk-navsolid linear both;animation-timeline:scroll();animation-range:0 120px}
+}
+.nav-inner{display:flex;align-items:center;justify-content:flex-end;gap:28px;height:64px}
+.brand{display:flex;align-items:center;gap:11px;margin-right:auto}
+.brand-mark{width:30px;height:30px;border-radius:8px;background:var(--vk-surface);border:1px solid var(--vk-border);display:grid;place-items:center;color:var(--vk-gold);transition:transform .3s var(--ease)}
+.brand-mark svg{width:15px;height:15px}
+.brand:hover .brand-mark{transform:rotate(-4deg)} /* micro-interação do logo */
+.brand-name{font-family:var(--font-display);font-weight:600;font-size:.85rem;letter-spacing:.2em}
+.brand-sub{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;color:var(--vk-muted);border-left:1px solid var(--vk-border);padding-left:11px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:.86rem;color:var(--vk-muted);position:relative;transition:color .25s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:1px;background:var(--vk-gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav-links a:hover{color:var(--vk-text)}
+.nav-links a:hover::after{transform:scaleX(1)}
+/* [F-14] CTA da navbar — "moldura viva" em versão compacta:
+   um único cometa dourado, órbita lenta (8s), anel a 3px do botão.
+   Sem o cometa-rápido do hover (colidiria com os links vizinhos). */
+.nav-cta{
+  font-family:var(--font-display);font-weight:600;font-size:.83rem;
+  background:var(--vk-gold);color:var(--vk-bg);
+  padding:9px 18px;border-radius:8px;
+  position:relative;
+  transition:background .25s,transform .25s;
+}
+.nav-cta::before{
+  content:"";position:absolute;inset:-4px;border-radius:12px;padding:1px;pointer-events:none;
+  background:
+    conic-gradient(from var(--vk-orbit,0deg),
+      transparent 0deg 296deg,
+      var(--vk-gold-light) 351deg,
+      transparent 356deg 360deg),
+    linear-gradient(rgba(212,167,44,.22),rgba(212,167,44,.22));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  animation:vk-orbit 8s linear infinite;
+  transition:filter .3s,opacity .12s;
+}
+.nav-cta:hover{background:var(--vk-gold-light);transform:translateY(-1px)}
+.nav-cta:hover::before{filter:brightness(1.7)}
+.nav-cta:active{transform:scale(.97)}
+.nav-cta:active::before{opacity:0}
+/* [F-03] Menu mobile — checkbox hack: o label (hambúrguer) alterna o input
+   escondido; o seletor "~" abre a lista. As 3 barras viram um "X". */
+.nav-burger{display:none;width:40px;height:40px;border:1px solid var(--vk-border);border-radius:9px;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer}
+.nav-burger span{display:block;width:17px;height:2px;background:var(--vk-text);border-radius:2px;transition:transform .35s var(--ease),opacity .25s}
+#navToggle:checked ~ .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+#navToggle:checked ~ .nav-burger span:nth-child(2){opacity:0}
+#navToggle:checked ~ .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ── [07] BOTÕES — [F-14] CTA dourado "moldura viva" ────────────────────────
+   Animação exclusiva do botão principal: um filamento de luz dourada (cometa)
+   orbita sem parar a moldura externa, com rastro que se apaga. Técnica:
+   · ::before = moldura (anel de 1px: padding + mask exclusion) + cometa lento
+   · ::after  = cometa rápido, quase branco, em órbita externa — surge só no
+                :hover (aceleração sem reiniciar a animação base)
+   · @property --vk-orbit registra o ângulo p/ o CSS animar o conic-gradient
+   · Fallbacks: sem @property → moldura estática (cometa estacionado);
+     prefers-reduced-motion → órbita congela, moldura permanece. */
+
+@property --vk-orbit{syntax:'<angle>';initial-value:0deg;inherits:false}
+
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:.92rem;padding:14px 26px;border-radius:10px;transition:transform .25s var(--ease),background .25s,border-color .25s;position:relative}
+.btn:active{transform:scale(.97)}
+.btn svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.btn-ghost{border:1px solid var(--vk-border)}
+.btn-ghost:hover{border-color:var(--vk-gold);color:var(--vk-gold);transform:translateY(-2px)}
+
+.btn-gold{background:var(--vk-gold);color:var(--vk-bg)}
+.btn-gold:hover{background:var(--vk-gold-light);transform:translateY(-2px)}
+.btn-gold:hover svg{transform:translateX(4px)}
+
+/* moldura: anel dourado discreto a 5px do botão + cometa base (6s por volta) */
+.btn-gold::before{
+  content:"";position:absolute;inset:-5px;border-radius:14px;padding:1px;pointer-events:none;
+  background:
+    conic-gradient(from var(--vk-orbit,0deg),
+      transparent 0deg 296deg,
+      var(--vk-gold-light) 351deg,
+      transparent 356deg 360deg),
+    linear-gradient(rgba(212,167,44,.22),rgba(212,167,44,.22));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  animation:vk-orbit 6s linear infinite;
+  transition:filter .3s,opacity .12s;
+}
+/* hover: moldura acende + cometa rápido (cauda dourada, ponta branca) surge
+   numa órbita externa de 7px — dois filamentos em velocidades diferentes */
+.btn-gold::after{
+  content:"";position:absolute;inset:-7px;border-radius:16px;padding:1px;pointer-events:none;opacity:0;
+  background:conic-gradient(from var(--vk-orbit,0deg),
+    transparent 0deg 318deg,
+    var(--vk-gold-light) 350deg,
+    var(--vk-text) 357deg,
+    transparent 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  animation:vk-orbit 2.2s linear infinite;
+  transition:opacity .35s;
+}
+.btn-gold:hover::before{filter:brightness(1.7)}
+.btn-gold:hover::after{opacity:1}
+/* clique: os cometas se apagam num piscar — o botão "pouso" */
+.btn-gold:active::before,.btn-gold:active::after{opacity:0}
+
+/* CTA final: halo dourado que respira em harmonia com a órbita */
+.btn-pulse{animation:vk-halo 3.6s ease-in-out infinite}
+
+/* ── [08] HERO — [F-05] entrada em cascata no carregamento ───────────────── */
+.hero{position:relative;padding-top:126px;padding-bottom:clamp(56px,7vw,88px);text-align:center;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:820px;height:560px;background:radial-gradient(closest-side,rgba(212,167,44,.09),transparent 72%);pointer-events:none;animation:vk-breathe 9s ease-in-out infinite}
+.hero-eyebrow{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--vk-gold);margin-bottom:22px;display:flex;align-items:center;justify-content:center;gap:13px;animation:vk-reveal .7s var(--ease) both}
+.hero-eyebrow::before,.hero-eyebrow::after{content:"";width:24px;height:1px;background:rgba(212,167,44,.35)}
+/* título: cada palavra sobe com atraso escalonado */
+.hero h1{margin-bottom:18px}
+.hero h1 .w{display:inline-block;animation:vk-word .7s var(--ease) both}
+.hero h1 .w:nth-child(1){animation-delay:.1s}
+.hero h1 .w:nth-child(2){animation-delay:.18s}
+.hero h1 .w:nth-child(3){animation-delay:.26s}
+.hero h1 .gold-dot{color:var(--vk-gold)}
+.hero .lead{margin:0 auto 32px;max-width:520px;animation:vk-reveal .7s var(--ease) .34s both}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:vk-reveal .7s var(--ease) .44s both}
+.hero-proof{margin-top:24px;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--vk-muted);animation:vk-reveal .7s var(--ease) .56s both}
+.hero-proof i{font-style:normal;color:var(--vk-gold);margin-inline:11px}
+.hero-visual{position:relative;max-width:960px;margin:52px auto 0;animation:vk-reveal .9s var(--ease) .66s both}
+.hero-visual::before{content:"";position:absolute;inset:-56px -70px;background:radial-gradient(closest-side,rgba(212,167,44,.07),transparent 75%);pointer-events:none;animation:vk-breathe 9s ease-in-out infinite}
+
+/* ── [09] MOCKUP DO APP — [F-13] levitação contínua + tilt no hover ──────── */
+/* Duas camadas: .floaty anima a levitação; .window recebe o tilt no hover.
+   Separar as camadas evita que a animation sobrescreva o transform do hover. */
+.floaty{animation:vk-float 9s ease-in-out infinite}
+.window{background:var(--vk-surface);border:1px solid var(--vk-border);border-radius:13px;overflow:hidden;box-shadow:0 36px 80px -18px rgba(0,0,0,.6);text-align:left;transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.hero-visual:hover .window{transform:perspective(1200px) rotateX(1.2deg) rotateY(-2deg) scale(1.008)}
+.titlebar{display:flex;align-items:center;gap:14px;height:38px;padding:0 14px;background:var(--vk-sidebar);border-bottom:1px solid var(--vk-border)}
+.tb-dots{display:flex;gap:6px}
+.tb-dots span{width:9px;height:9px;border-radius:50%;background:#24282E;transition:background .25s}
+.tb-dots span:nth-child(1):hover{background:var(--vk-danger)} /* micro: os "botões" da janela reagem */
+.tb-title{flex:1;text-align:center;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--vk-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb-actions{display:flex;gap:12px;color:var(--vk-muted)}
+.tb-actions svg{width:10px;height:10px;stroke:currentColor;stroke-width:1.4;fill:none}
+.tb-actions .tb-x:hover{color:var(--vk-danger)}
+.window-body{display:flex}
+.app-side{width:186px;flex-shrink:0;background:var(--vk-sidebar);border-right:1px solid var(--vk-border);display:flex;flex-direction:column;padding:14px 10px}
+.app-brand{display:flex;align-items:center;gap:8px;padding:2px 8px 16px}
+.app-brand .brand-mark{width:24px;height:24px;border-radius:6px}
+.app-brand .brand-mark svg{width:12px;height:12px}
+.app-brand b{font-family:var(--font-display);font-weight:600;font-size:.68rem;letter-spacing:.22em}
+.app-nav{display:flex;flex-direction:column;gap:2px}
+.app-nav a{display:flex;align-items:center;gap:10px;padding:8px 9px;border-radius:7px;font-size:.8rem;color:var(--vk-muted);border-left:2px solid transparent;transition:color .2s,background .2s,border-color .2s}
+.app-nav a svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.app-nav a:hover{color:var(--vk-text);background:rgba(247,247,245,.03)}
+.app-nav a.active{color:var(--vk-text);background:rgba(212,167,44,.07);border-left-color:var(--vk-gold)}
+.app-nav a.active svg{stroke:var(--vk-gold)}
+.app-company{margin-top:auto;border:1px solid var(--vk-border);border-radius:9px;padding:11px;background:var(--vk-surface)}
+.app-company .st{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.app-company .st i{width:6px;height:6px;border-radius:50%;background:var(--vk-receita);animation:vk-blink 2.4s infinite}
+.app-company b{display:block;font-size:.7rem;font-weight:600;margin-bottom:2px}
+.app-company span{font-family:var(--font-mono);font-size:.57rem;color:var(--vk-muted)}
+.app-main{flex:1;padding:18px 22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.app-header{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.app-title{font-family:var(--font-display);font-weight:600;font-size:1.05rem}
+.app-period{font-family:var(--font-mono);font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--vk-muted);margin-top:2px}
+.app-btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-display);font-weight:600;font-size:.75rem;color:var(--vk-gold);border:1px solid rgba(212,167,44,.35);padding:7px 13px;border-radius:8px;background:rgba(212,167,44,.05);white-space:nowrap;transition:background .25s,border-color .25s}
+.app-btn:hover{background:rgba(212,167,44,.12);border-color:var(--vk-gold)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.kpi{background:var(--vk-surface-2);border:1px solid var(--vk-border);border-radius:11px;padding:14px 16px;transition:transform .3s var(--ease),border-color .3s}
+.kpi:hover{transform:translateY(-3px);border-color:rgba(212,167,44,.4)}
+.kpi-label{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--vk-muted);margin-bottom:8px}
+.kpi-label i{width:6px;height:6px;border-radius:50%}
+.kpi-label i.g{background:var(--vk-gold)}.kpi-label i.r{background:var(--vk-receita)}.kpi-label i.d{background:var(--vk-despesa)}
+.kpi-value{display:block;font-family:var(--font-display);font-weight:600;font-size:clamp(1.15rem,1.8vw,1.5rem);font-variant-numeric:tabular-nums}
+.kpi-delta{display:inline-flex;align-items:center;gap:5px;margin-top:7px;font-size:.7rem;color:var(--vk-muted)}
+.kpi-delta.up{color:var(--vk-receita)}.kpi-delta.down{color:var(--vk-despesa)}
+.kpi-delta svg{width:9px;height:9px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.app-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:12px}
+.chart-card,.list-card{background:var(--vk-surface-2);border:1px solid var(--vk-border);border-radius:11px;padding:15px 17px;min-width:0}
+.cc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.cc-title{font-family:var(--font-display);font-weight:600;font-size:.88rem}
+.cc-legend{display:flex;gap:12px;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--vk-muted)}
+.cc-legend span{display:flex;align-items:center;gap:6px}
+.cc-legend i{width:6px;height:6px;border-radius:2px}
+.tx{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px solid rgba(41,45,51,.55);transition:transform .25s var(--ease)}
+.tx:last-child{border-bottom:none}
+.tx:hover{transform:translateX(5px)} /* linhas "respiram" para o lado */
+.tx-desc{flex:1;min-width:0;font-size:.81rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tx-cat{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--vk-muted);border:1px solid var(--vk-border);border-radius:99px;padding:2px 8px;white-space:nowrap}
+.tx-val{font-family:var(--font-display);font-weight:500;font-size:.82rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ── [10] [F-06] ODÔMETRO — contadores com dígitos rolantes ───────────────── */
+/* Como funciona: cada .dg é uma "janela" de 1 dígito (1em) com um bloco interno
+   .dg i contendo 0–9 empilhados (quebras <br>). O estado final é
+   translateY(calc(--d × -1em)) — o bloco desliza até o dígito-alvo (--d,
+   definido inline). A animação vk-roll parte de 0 e rola até lá, com atraso
+   escalonado (--dl). Sem animação (reduced-motion/fallback) o transform base
+   já exibe o valor final — nunca quebra. */
+.odo{display:inline-flex;font-variant-numeric:tabular-nums}
+.odo .pre{margin-right:.28em}
+.dg{display:inline-block;width:1ch;height:1em;overflow:hidden;vertical-align:top}
+.dg i{display:block;font-style:normal;line-height:1;text-align:center;
+      transform:translateY(calc(var(--d) * -1em))} /* estado final = dígito-alvo */
+.ds{display:inline-block}
+/* variante "load": dispara no carregamento (hero + painel Lançamentos, que
+   re-animam a cada abertura da aba, pois display:none reinicia keyframes) */
+.odo-load .dg i{animation:vk-roll .9s var(--ease) both;animation-delay:var(--dl,0s)}
+
+/* ── [11] [F-07/F-08] GRÁFICO DE BARRAS — crescimento + tooltips ──────────── */
+.bars-wrap{position:relative}
+.bars{display:flex;justify-content:space-between;gap:clamp(6px,1.5vw,18px);height:118px;border-bottom:1px solid var(--vk-border)}
+.bar-col{flex:1;max-width:52px;display:flex;gap:4px;align-items:flex-end;cursor:pointer;position:relative}
+.be,.bs{flex:1;min-width:5px;border-radius:3px 3px 0 0;transform-origin:bottom;transition:opacity .2s}
+.be{height:calc(var(--he) * 1%);background:var(--vk-receita);opacity:.85}
+.bs{height:calc(var(--hs) * 1%);background:var(--vk-despesa);opacity:.8}
+.bar-col:hover .be,.bar-col:hover .bs{opacity:1}
+/* [F-07] crescimento: variantes load (hero) e view (demo — dispara ao entrar
+   na viewport via scroll-driven animation) */
+.bars-load .be,.bars-load .bs{animation:vk-grow .8s var(--ease) both;animation-delay:var(--d,0s)}
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .bars-view .be,.bars-view .bs{animation:vk-grow .8s var(--ease) both;animation-timeline:view();animation-range:entry 10% entry 55%}
+  }
+}
+.bar-labels{display:flex;justify-content:space-between;gap:clamp(6px,1.5vw,18px);margin-top:8px}
+.bar-labels span{flex:1;max-width:52px;text-align:center;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;color:var(--vk-muted);text-transform:uppercase}
+/* [F-08] tooltip por coluna — .tip é um span pronto no HTML; visível no
+   :hover e no :focus-visible (colunas têm tabindex="0"). */
+.bar-col .tip{position:absolute;bottom:calc(100% + 9px);left:50%;transform:translateX(-50%) translateY(4px);display:flex;flex-direction:column;gap:2px;align-items:center;background:#1B1E24;border:1px solid var(--vk-border);border-radius:8px;padding:7px 11px;font-family:var(--font-mono);font-size:.62rem;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .25s var(--ease);z-index:5}
+.bar-col .tip b{color:var(--vk-text);font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.bar-col .tip i{font-style:normal;color:var(--vk-muted)}
+.bar-col .tip i b{font-weight:500}
+.bar-col .tip .tr{color:var(--vk-receita)}
+.bar-col .tip .ts{color:var(--vk-despesa)}
+.bar-col:hover .tip,.bar-col:focus-visible .tip{opacity:1;transform:translateX(-50%) translateY(0)}
+/* colunas das pontas: tooltip alinhado para dentro, sem vazar do card */
+.bar-col:first-child .tip{left:0;transform:translateX(0) translateY(4px)}
+.bar-col:first-child:hover .tip,.bar-col:first-child:focus-visible .tip{transform:translateX(0)}
+.bar-col:last-child .tip{left:auto;right:0;transform:translateX(0) translateY(4px)}
+.bar-col:last-child:hover .tip,.bar-col:last-child:focus-visible .tip{transform:translateX(0)}
+
+/* ── [12] ANTES/DEPOIS — planilha "instável" vs Valkore firme ─────────────── */
+.psx-head{text-align:center;margin-bottom:44px}
+.psx-head .lead{margin-inline:auto}
+.psx{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(16px,3vw,34px);align-items:stretch}
+.psx-card{background:var(--vk-surface);border:1px solid var(--vk-border);border-radius:13px;overflow:hidden;box-shadow:0 24px 60px -20px rgba(0,0,0,.5);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+/* narrativa visual: a planilha "desalinha" no hover; o Valkore se firma */
+.psx-card.antes:hover{transform:rotate(-.6deg) translateY(2px)}
+.psx-card.depois:hover{transform:translateY(-4px);box-shadow:0 30px 70px -20px rgba(0,0,0,.6)}
+.psx-bar{display:flex;align-items:center;gap:11px;padding:12px 16px;border-bottom:1px solid var(--vk-border);background:var(--vk-sidebar)}
+.psx-bar svg{width:14px;height:14px;stroke:var(--vk-muted);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.psx-bar .name{flex:1;font-family:var(--font-mono);font-size:.68rem;color:var(--vk-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.psx-bar .brand-mark{width:24px;height:24px;border-radius:6px}
+.psx-bar .brand-mark svg{width:12px;height:12px}
+.psx-bar b{font-family:var(--font-display);font-weight:600;font-size:.7rem;letter-spacing:.18em}
+.psx-vs{display:grid;place-items:center;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--vk-gold)}
+.sheet-body{display:grid;grid-template-columns:30px repeat(3,minmax(0,1fr));font-family:var(--font-mono);font-size:.68rem}
+.sheet-body>div{padding:9px 10px;border-bottom:1px solid rgba(41,45,51,.45);border-right:1px solid rgba(41,45,51,.45);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.thead{background:#14171C;color:var(--vk-muted);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase}
+.rownum{background:#14171C;color:#4A4E55;text-align:center;font-size:.6rem}
+.sheet-body .err{color:var(--vk-danger)}
+.sheet-body .blank{color:#3E434B}
+.sheet-body .strike{text-decoration:line-through;color:#5A5F66}
+.sheet-body .q{color:var(--vk-despesa)}
+.sheet-stale{display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.58rem;color:var(--vk-danger);white-space:nowrap}
+.sheet-stale i{width:5px;height:5px;border-radius:50%;background:var(--vk-danger);animation:vk-blink 2.2s infinite}
+/* hover na planilha: os erros "piscam" — a dor aparece */
+.psx-card.antes:hover .err{animation:vk-err 1s ease-in-out infinite}
+.tidy-row{display:flex;align-items:center;gap:11px;padding:12px 16px;border-bottom:1px solid rgba(41,45,51,.5);transition:background .2s,transform .25s var(--ease)}
+.tidy-row:hover{background:rgba(247,247,245,.02);transform:translateX(4px)}
+.tidy-desc{flex:1;font-size:.85rem;min-width:0}
+.tidy-val{font-family:var(--font-display);font-weight:500;font-size:.85rem;font-variant-numeric:tabular-nums}
+.tidy-foot{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--vk-muted)}
+.tidy-foot b{font-family:var(--font-display);font-size:.95rem;letter-spacing:0;font-weight:600}
+.psx-caption{margin-top:24px;text-align:center}
+
+/* ── [13] FUNCIONALIDADES — [F-11] ícones que se redesenham ───────────────── */
+.features,.interface,.security{border-top:1px solid var(--vk-border)}
+.sec-head{margin-bottom:44px}
+.sec-head.center{text-align:center}
+.sec-head.center .eyebrow{justify-content:center}
+.sec-head.center .lead{margin-inline:auto}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.feat{background:var(--vk-surface);border:1px solid var(--vk-border);border-radius:12px;padding:22px;transition:border-color .3s,transform .3s var(--ease)}
+.feat:hover{border-color:rgba(212,167,44,.4);transform:translateY(-3px)}
+.feat-ico{width:40px;height:40px;border:1px solid var(--vk-border);border-radius:10px;display:grid;place-items:center;color:var(--vk-gold);background:var(--vk-surface-2);margin-bottom:14px;transition:border-color .3s,background .3s}
+.feat-ico svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+/* todos os traços dos ícones têm pathLength="1" → dasharray:1 = comprimento
+   total. No hover, vk-redraw "apaga" e redesenha o ícone, traço a traço. */
+.feat-ico svg *{stroke-dasharray:1;stroke-dashoffset:0}
+.feat:hover .feat-ico{border-color:rgba(212,167,44,.45);background:rgba(212,167,44,.05)}
+.feat:hover .feat-ico svg *{animation:vk-redraw .9s var(--ease)}
+.feat h3{font-size:.98rem;margin-bottom:5px}
+.feat p{color:var(--vk-muted);font-size:.85rem;line-height:1.55}
+
+/* ── [14] [F-09] DEMO — abas via radio + painéis que re-animam ────────────── */
+.demo-wrap{max-width:980px;margin-inline:auto}
+.demo-tabs{display:flex;gap:2px;padding:0 12px;border-bottom:1px solid var(--vk-border);background:var(--vk-sidebar);overflow-x:auto;scrollbar-width:none}
+.demo-tabs::-webkit-scrollbar{display:none}
+.tab{position:relative;padding:13px 16px;font-family:var(--font-display);font-weight:500;font-size:.84rem;color:var(--vk-muted);white-space:nowrap;cursor:pointer;transition:color .25s}
+.tab:hover{color:var(--vk-text)}
+.tab::after{content:"";position:absolute;left:12px;right:12px;bottom:-1px;height:2px;background:var(--vk-gold);transform:scaleX(0);transition:transform .35s var(--ease)}
+/* o radio marcado acende a label correspondente (irmão seguinte via ~) */
+#tab-dash:checked ~ .demo-tabs label[for="tab-dash"],
+#tab-lan:checked  ~ .demo-tabs label[for="tab-lan"],
+#tab-flu:checked  ~ .demo-tabs label[for="tab-flu"]{color:var(--vk-text)}
+#tab-dash:checked ~ .demo-tabs label[for="tab-dash"]::after,
+#tab-lan:checked  ~ .demo-tabs label[for="tab-lan"]::after,
+#tab-flu:checked  ~ .demo-tabs label[for="tab-flu"]::after{transform:scaleX(1)}
+/* foco de teclado: radios ficam focáveis (classe .sr) e iluminam a label */
+#tab-dash:focus-visible ~ .demo-tabs label[for="tab-dash"],
+#tab-lan:focus-visible  ~ .demo-tabs label[for="tab-lan"],
+#tab-flu:focus-visible  ~ .demo-tabs label[for="tab-flu"]{outline:2px solid var(--vk-gold);outline-offset:-2px;border-radius:6px}
+/* painéis: exibidos apenas quando o radio irmão está marcado. Ao sair de
+   display:none, TODAS as animações internas (panelIn, odômetro, draw)
+   reiniciam — trocar de aba re-anima a tela, sem JavaScript. */
+.tab-panel{display:none;padding:20px}
+#tab-dash:checked ~ .panels > #panel-dash,
+#tab-lan:checked  ~ .panels > #panel-lan,
+#tab-flu:checked  ~ .panels > #panel-flu{display:block;animation:vk-panel .45s var(--ease)}
+.pt-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.pt-title{font-family:var(--font-display);font-weight:600;font-size:1rem}
+.pt-title span{font-family:var(--font-mono);font-weight:400;font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--vk-muted);margin-left:9px}
+.pt-total{font-family:var(--font-display);font-weight:600;font-size:1.12rem;font-variant-numeric:tabular-nums;margin-top:2px}
+.pt-row{display:grid;grid-template-columns:minmax(0,1.4fr) 110px 70px 140px;align-items:center;gap:11px;padding:11px 4px;border-bottom:1px solid rgba(41,45,51,.5);transition:background .2s,transform .25s var(--ease)}
+.pt-row.th{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--vk-muted);border-bottom:1px solid var(--vk-border);padding-block:8px}
+.pt-row:not(.th):hover{background:rgba(247,247,245,.02);transform:translateX(5px)}
+.pt-desc{font-size:.86rem;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--vk-muted);border:1px solid var(--vk-border);border-radius:99px;padding:2px 9px;white-space:nowrap}
+.pt-date{font-family:var(--font-mono);font-size:.68rem;color:var(--vk-muted)}
+.pt-val{justify-self:end;font-family:var(--font-display);font-weight:500;font-size:.86rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pt-foot{display:flex;justify-content:space-between;gap:12px;padding:14px 4px 2px;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--vk-muted)}
+.pt-foot b{font-weight:500}
+.demo-note{text-align:center;margin-top:20px;font-size:.78rem;color:var(--vk-muted)}
+
+/* ── [15] [F-10] FLUXO DE CAIXA — SVG animado + zonas de leitura ──────────── */
+.fluxo-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.fluxo-chart{position:relative}
+.fluxo-chart svg{width:100%;height:auto;display:block}
+.fluxo-chart text{font-family:var(--font-mono);fill:var(--vk-muted)}
+/* [F-10a] as curvas se desenham (pathLength=1) sempre que o painel é exibido */
+.fluxo-chart polyline{stroke-dasharray:1;stroke-dashoffset:0;animation:vk-draw 1.4s var(--ease) .15s both}
+/* [F-10b] grade entra suave junto */
+.fluxo-chart .grid line{animation:vk-reveal .8s var(--ease) both}
+/* [F-10c] zonas de leitura: 12 faixas verticais invisíveis, centradas em cada
+   mês. No :hover de cada zona: guia vertical + pontos + tooltip do mês. */
+.hots{position:absolute;inset:0;display:block}
+.hot{position:absolute;top:0;bottom:0;width:8.45%;cursor:crosshair}
+.hot::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--vk-text);opacity:.14;opacity:0;transition:opacity .2s}
+.hot:hover::before{opacity:.14}
+.hot i{position:absolute;left:50%;width:9px;height:9px;border-radius:50%;transform:translate(-50%,-50%) scale(.3);opacity:0;transition:opacity .2s,transform .25s var(--ease)}
+.hot i.ent{background:var(--vk-bg);border:2.5px solid var(--vk-receita)}
+.hot i.sai{background:var(--vk-bg);border:2.5px solid var(--vk-despesa)}
+.hot:hover i{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.hot .tip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(4px);background:#1B1E24;border:1px solid var(--vk-border);border-radius:10px;padding:9px 12px;font-family:var(--font-mono);font-size:.64rem;min-width:172px;opacity:0;pointer-events:none;transition:opacity .2s,transform .25s var(--ease);z-index:6}
+.hot .tip b{display:block;color:var(--vk-text);font-weight:500;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;font-size:.58rem}
+.hot .tip .r{display:flex;justify-content:space-between;gap:16px;color:var(--vk-muted)}
+.hot .tip .r b{font-weight:500;display:inline;margin:0;font-size:.64rem;letter-spacing:0;text-transform:none}
+.hot .tip .tr{color:var(--vk-receita)}
+.hot .tip .ts{color:var(--vk-despesa)}
+.hot:hover .tip{opacity:1;transform:translateX(-50%) translateY(0)}
+/* pontas do gráfico: tooltip alinhado para dentro */
+.hot:first-child .tip,.hot:nth-child(2) .tip{left:0;transform:translateX(0) translateY(4px)}
+.hot:first-child:hover .tip,.hot:nth-child(2):hover .tip{transform:translateX(0)}
+.hot:last-child .tip,.hot:nth-child(11) .tip{left:auto;right:0;transform:translateX(0) translateY(4px)}
+.hot:last-child:hover .tip,.hot:nth-child(11):hover .tip{transform:translateX(0)}
+/* [F-10d] :has() — passar o mouse sobre QUALQUER zona engrossa as curvas
+   (fallback: browsers sem :has() simplesmente não engrossam) */
+.fluxo-chart:has(.hot:hover) polyline.ent{stroke-width:3.4}
+.fluxo-chart:has(.hot:hover) polyline.sai{stroke-width:3}
+.fluxo-stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:18px;border-top:1px solid var(--vk-border)}
+.fs{padding:14px 16px 2px;border-left:1px solid var(--vk-border)}
+.fs:first-child{border-left:none;padding-left:4px}
+.fs .cap{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--vk-muted);margin-bottom:6px}
+.fs b{display:block;font-family:var(--font-display);font-weight:600;font-size:1.1rem;font-variant-numeric:tabular-nums}
+.fs span{font-size:.74rem;color:var(--vk-muted)}
+
+/* ── [16] SEGURANÇA — cards + redraw de ícones ────────────────────────────── */
+.sec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.sec-cell{background:var(--vk-surface);border:1px solid var(--vk-border);border-radius:12px;padding:20px;transition:border-color .3s,transform .3s var(--ease)}
+.sec-cell:hover{border-color:rgba(212,167,44,.4);transform:translateY(-3px)}
+.sec-ico{width:38px;height:38px;border:1px solid var(--vk-border);border-radius:10px;display:grid;place-items:center;color:var(--vk-gold);background:var(--vk-surface-2);margin-bottom:13px;transition:border-color .3s,background .3s}
+.sec-ico svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.sec-ico svg *{stroke-dasharray:1;stroke-dashoffset:0}
+.sec-cell:hover .sec-ico{border-color:rgba(212,167,44,.45);background:rgba(212,167,44,.05)}
+.sec-cell:hover .sec-ico svg *{animation:vk-redraw .9s var(--ease)}
+.sec-cell h3{font-size:.92rem;margin-bottom:4px}
+.sec-cell p{color:var(--vk-muted);font-size:.82rem;line-height:1.5}
+
+/* ── [17] [F-12] BENEFÍCIOS — accordion <details> animado ─────────────────── */
+/* Técnica: grid-template-rows 0fr → 1fr no corpo quando [open]; o conteúdo
+   interno (overflow:hidden) desliza. O marcador nativo é oculto e substituído
+   por um "+" que vira "−". Navegação por teclado é nativa do <summary>. */
+.bene{margin-top:56px}
+.bene-line{border-bottom:1px solid var(--vk-border)}
+details.bene-item{border-top:1px solid var(--vk-border)}
+details.bene-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:22px;padding:24px 6px;transition:background .2s}
+details.bene-item summary::-webkit-details-marker{display:none}
+details.bene-item summary:hover{background:rgba(247,247,245,.015)}
+.bene-num{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;color:var(--vk-gold)}
+details.bene-item summary h3{font-size:clamp(1.1rem,2vw,1.45rem);font-weight:600;transition:transform .35s var(--ease)}
+details.bene-item summary:hover h3{transform:translateX(5px)}
+.bene-x{position:relative;width:14px;height:14px;margin-left:auto;flex-shrink:0}
+.bene-x::before,.bene-x::after{content:"";position:absolute;background:var(--vk-gold);transition:transform .4s var(--ease)}
+.bene-x::before{left:0;right:0;top:6px;height:2px}
+.bene-x::after{top:0;bottom:0;left:6px;width:2px}
+details[open] .bene-x::after{transform:scaleY(0)} /* "+" vira "−" */
+.bene-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+details[open] .bene-body{grid-template-rows:1fr}
+.bene-inner{overflow:hidden;min-height:0}
+.bene-inner p{color:var(--vk-muted);font-size:.95rem;padding:0 6px 26px;max-width:60ch;margin-left:calc(.68rem + 22px)}
+
+/* ── [18] CTA FINAL + RODAPÉ ──────────────────────────────────────────────── */
+.cta{position:relative;border-top:1px solid var(--vk-border);text-align:center;overflow:hidden}
+.cta::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:720px;height:480px;background:radial-gradient(closest-side,rgba(212,167,44,.08),transparent 72%);pointer-events:none;animation:vk-breathe 9s ease-in-out infinite}
+.cta-inner{position:relative;padding-block:clamp(64px,8vw,104px)}
+.cta h2{font-size:clamp(1.7rem,3.8vw,2.7rem);max-width:18ch;margin:0 auto 34px;letter-spacing:-.03em}
+.cta-note{margin-top:24px;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--vk-muted)}
+.cta-note i{font-style:normal;color:var(--vk-gold);margin-inline:11px}
+footer{border-top:1px solid var(--vk-border)}
+.foot-grid{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-block:28px}
+.foot-tag{color:var(--vk-muted);font-size:.84rem}
+.foot-copy{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--vk-muted)}
+
+/* ── [19] [F-04] REVEAL AO SCROLL (scroll-driven animations) ──────────────── */
+/* Cada [data-reveal] anima quando ENTRA na viewport. Fora do @supports o
+   elemento permanece visível (fallback estático). */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    [data-reveal]{animation:vk-reveal .7s var(--ease) both;animation-timeline:view();animation-range:entry 0% entry 55%}
+    [data-reveal="1"]{animation-delay:.08s}
+    [data-reveal="2"]{animation-delay:.16s}
+  }
+}
+
+/* ── [20] RESPONSIVO ──────────────────────────────────────────────────────── */
+@media (max-width:900px){
+  .nav-burger{display:flex}
+  /* [F-03] o dropdown abre abaixo da navbar e desliza para dentro */
+  .nav-wrap{position:absolute;top:64px;left:0;right:0;background:rgba(8,9,11,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--vk-border);display:none}
+  .nav-wrap .nav-links{flex-direction:column;align-items:flex-start;gap:0;padding:8px 22px 20px}
+  .nav-wrap .nav-links a{font-size:.95rem;padding:12px 0;width:100%}
+  .nav-wrap .nav-links a::after{display:none}
+  .nav-cta{margin:8px 0 12px;width:100%;text-align:center;display:block}
+  #navToggle:checked ~ .nav-wrap{display:block;animation:vk-menu .35s var(--ease)}
+  .feat-grid,.sec-grid{grid-template-columns:repeat(2,1fr)}
+  .psx{grid-template-columns:1fr}
+  .psx-vs{padding-block:2px}
+  .app-side{width:170px}
+}
+@media (max-width:760px){
+  .app-side{display:none}
+  .app-grid{grid-template-columns:1fr}
+  .tb-title{visibility:hidden}
+  .fluxo-stats{grid-template-columns:1fr}
+  .fs{border-left:none;border-top:1px solid var(--vk-border);padding:12px 4px 2px}
+  .fs:first-child{border-top:none}
+  .fluxo-chart .sx{opacity:0} /* meses alternados somem em telas estreitas */
+}
+@media (max-width:640px){
+  .kpis{grid-template-columns:1fr}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .pt-row{grid-template-columns:1fr auto;grid-template-areas:"desc val" "meta date";row-gap:7px;padding-block:12px}
+  .pt-row.th{display:none}
+  .pt-desc{grid-area:desc}.pt-date{grid-area:date;justify-self:end}.pt-val{grid-area:val}
+  .feat-grid,.sec-grid{grid-template-columns:1fr}
+  .sheet-body{font-size:.6rem}
+  .sheet-body>div{padding:8px 7px}
+  details.bene-item summary{gap:14px}
+  .bene-inner p{margin-left:0}
+}
+
+/* ── [21] MOVIMENTO REDUZIDO — todas as animações colapsam ao estado final ── */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+}
+/* ── [22] [F-15] ATENDIMENTO — botão flutuante + chat/WhatsApp ────────────── */
+/* Widget fixo no canto inferior direito, sempre visível. Sem JavaScript:
+   · #chatToggle (checkbox) ...... abre/fecha o painel; o FAB troca o ícone
+   · #optMenu/#optChat (radios) .. alternam "menu de opções" ↔ "conversa"
+   · #q1–#q3 (radios) ............ a pergunta escolhida revela a resposta,
+                                    com "digitando…" antes do texto surgir
+   · WhatsApp ..................... link direto wa.me (número fica no HTML) */
+
+/* FAB — botão redondo dourado com a "moldura viva" ([F-14]) circular */
+/* FAB — círculo no VERDE OFICIAL DO WHATSAPP (#25D366): cor de plataforma
+   externa (afordância de "fale conosco"), não assinatura da marca Valkore.
+   Glifo oficial preenchido + badge "1" (some ao abrir = "lida") + moldura
+   viva ([F-14]) orbitando em verde-água com ponta branca. */
+.chat-fab{position:fixed;right:20px;bottom:20px;z-index:80;width:54px;height:54px;border-radius:50%;background:#25D366;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 34px -10px rgba(0,0,0,.55),0 6px 18px -4px rgba(37,211,102,.4);transition:transform .25s var(--ease),background .25s}
+.chat-fab:hover{background:#2EE07A;transform:translateY(-2px) scale(1.03)}
+.chat-fab:active{transform:scale(.94)}
+/* ícones: WhatsApp é fill branco; o X de fechar continua stroke */
+.chat-fab svg{color:#FFF}
+.chat-fab .ic-wa{width:28px;height:28px;fill:currentColor;transition:transform .3s var(--ease)}
+.chat-fab:hover .ic-wa{transform:rotate(-8deg) scale(1.07)}
+.chat-fab .ic-x{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.chat-fab .ic-x{display:none}
+#chatToggle:checked ~ .chat-fab .ic-x{display:block}
+#chatToggle:checked ~ .chat-fab .ic-wa{display:none}
+/* moldura viva: anel verde discreto + cometa verde-água com ponta branca */
+.chat-fab::before{content:"";position:absolute;inset:-4px;border-radius:50%;padding:1px;pointer-events:none;
+  background:conic-gradient(from var(--vk-orbit,0deg),transparent 0deg 290deg,#7CE8A0 348deg,#FFF 357deg,transparent 360deg),linear-gradient(rgba(37,211,102,.22),rgba(37,211,102,.22));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;
+  animation:vk-orbit 8s linear infinite;transition:filter .3s}
+.chat-fab:hover::before{filter:brightness(1.6)}
+/* badge "1" — mensagem não lida; encolhe e some quando o painel abre */
+.chat-fab::after{content:"1";position:absolute;top:-3px;right:-3px;width:19px;height:19px;border-radius:50%;background:#FFF;color:#25D366;font-family:var(--font-display);font-weight:700;font-size:.66rem;line-height:1;display:grid;place-items:center;border:2px solid var(--vk-bg);transition:opacity .3s,transform .3s var(--ease)}
+.chat-fab:hover::after{transform:scale(1.12)}
+#chatToggle:checked ~ .chat-fab::after{opacity:0;transform:scale(.4)}
+.chat-opt .ico svg.wa-ic{fill:currentColor;stroke:none;width:21px;height:21px}
+
+/* Painel */
+.chat-panel{position:fixed;right:20px;bottom:90px;z-index:80;width:min(340px,calc(100vw - 40px));max-height:min(540px,calc(100dvh - 130px));display:none;flex-direction:column;background:var(--vk-surface);border:1px solid var(--vk-border);border-radius:14px;overflow:hidden;box-shadow:0 30px 70px -16px rgba(0,0,0,.65);text-align:left}
+#chatToggle:checked ~ .chat-panel{display:flex;animation:vk-chat-in .4s var(--ease)}
+.chat-head{display:flex;align-items:center;gap:10px;padding:12px 15px;background:var(--vk-sidebar);border-bottom:1px solid var(--vk-border);flex-shrink:0}
+.chat-head .brand-mark{width:28px;height:28px}
+.chat-head .brand-mark svg{width:14px;height:14px}
+.chat-head b{font-family:var(--font-display);font-weight:600;font-size:.82rem;display:block;letter-spacing:.02em}
+.chat-status{display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--vk-muted);margin-top:1px}
+.chat-status i{width:6px;height:6px;border-radius:50%;background:var(--vk-receita);animation:vk-blink 2.4s infinite}
+
+/* Vistas: menu de opções ↔ conversa */
+.chat-view{display:none;padding:15px;overflow-y:auto}
+#optMenu:checked ~ .chat-menu,
+#optChat:checked ~ .chat-convo{display:block;animation:vk-panel .4s var(--ease)}
+
+/* Cartões de opção */
+.chat-opt{display:flex;align-items:center;gap:12px;padding:13px 14px;border:1px solid var(--vk-border);border-radius:11px;background:var(--vk-surface-2);cursor:pointer;transition:border-color .25s,transform .25s var(--ease)}
+.chat-opt + .chat-opt{margin-top:9px}
+.chat-opt:hover{border-color:rgba(212,167,44,.45);transform:translateY(-2px)}
+.chat-opt .ico{width:38px;height:38px;border:1px solid var(--vk-border);border-radius:10px;display:grid;place-items:center;color:var(--vk-gold);background:var(--vk-surface);flex-shrink:0}
+.chat-opt.wa .ico{color:var(--vk-receita)} /* verde = afordância da plataforma, não assinatura da marca */
+.chat-opt svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.chat-opt svg *{stroke-dasharray:1;stroke-dashoffset:0}
+.chat-opt:hover svg *{animation:vk-redraw .9s var(--ease)} /* [F-11] */
+.chat-opt .t{font-family:var(--font-display);font-weight:600;font-size:.88rem;display:block;margin-bottom:1px}
+.chat-opt .s{font-size:.75rem;color:var(--vk-muted)}
+.chat-note{margin-top:12px;text-align:center}
+
+/* Conversa */
+.back{display:inline-flex;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--vk-muted);cursor:pointer;margin-bottom:12px;transition:color .2s}
+.back:hover{color:var(--vk-gold)}
+.bubble-in{display:flex;gap:8px;align-items:flex-start}
+.avatar{width:26px;height:26px;border-radius:8px;background:var(--vk-surface);border:1px solid var(--vk-border);display:grid;place-items:center;color:var(--vk-gold);flex-shrink:0}
+.avatar svg{width:13px;height:13px}
+.msg{position:relative;background:var(--vk-surface-2);border:1px solid var(--vk-border);border-radius:4px 11px 11px 11px;padding:10px 12px;font-size:.8rem;line-height:1.55;max-width:calc(100% - 34px)}
+/* "digitando…": pontos piscam sobre a resposta; o texto surge por baixo */
+.qa .msg{margin:6px 0 0 34px}
+.qa .txt{display:block;animation:vk-reveal .4s var(--ease) .8s both}
+.typing{position:absolute;inset:0;display:flex;align-items:center;gap:4px;padding:0 12px;background:var(--vk-surface-2);border-radius:inherit;animation:vk-type-hide 1.4s linear forwards}
+.typing i{width:5px;height:5px;border-radius:50%;background:var(--vk-muted);animation:vk-blink .9s infinite}
+.typing i:nth-child(2){animation-delay:.15s}
+.typing i:nth-child(3){animation-delay:.3s}
+.qa{display:none}
+#q1:checked ~ .chat-answers .qa:nth-child(1),
+#q2:checked ~ .chat-answers .qa:nth-child(2),
+#q3:checked ~ .chat-answers .qa:nth-child(3){display:block}
+.chat-chips{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 2px}
+.chip-q{font-size:.74rem;color:var(--vk-muted);border:1px solid var(--vk-border);border-radius:99px;padding:6px 13px;cursor:pointer;user-select:none;transition:color .2s,border-color .2s,background .2s}
+.chip-q:hover{color:var(--vk-text);border-color:var(--vk-gold)}
+#q1:checked ~ .chat-chips label[for="q1"],
+#q2:checked ~ .chat-chips label[for="q2"],
+#q3:checked ~ .chat-chips label[for="q3"]{background:var(--vk-gold);border-color:var(--vk-gold);color:var(--vk-bg);font-weight:600}
+.chat-wa{display:block;margin-top:13px;padding-top:12px;border-top:1px solid var(--vk-border);font-size:.76rem;color:var(--vk-muted);transition:color .2s}
+.chat-wa:hover{color:var(--vk-receita)}
+
+@media (max-width:640px){
+  .chat-fab{right:16px;bottom:16px}
+  .chat-panel{right:16px;bottom:82px}
 }

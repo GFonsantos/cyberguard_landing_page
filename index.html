@@ -1,252 +1,626 @@
 <!DOCTYPE html>
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     VALKORE DESKTOP — LANDING PAGE · v2.0 (edição "viva", zero JavaScript)
+     ───────────────────────────────────────────────────────────────────────────
+     Projeto ........ Valkore Desktop — Gestão financeira para empresas/autônomos
+     Proprietário ... Fonsantos Tecnologias
+     Stack .......... HTML5 + CSS3 puro · SEM NENHUMA linha de JavaScript
+     Identidade ..... Preto quase absoluto + dourado premium + cores funcionais
+     Tipografia ..... Space Grotesk (display) · Instrument Sans (texto)
+                      JetBrains Mono (metadados / dados numéricos)
+
+     ── MAPA DE INTERAÇÕES (as "funções" da página, todas em CSS puro) ──────────
+     [F-01] Barra de progresso de leitura ......... animation-timeline: scroll()
+     [F-02] Navbar sólida ao rolar ................ animation-timeline: scroll()
+     [F-03] Menu mobile (hambúrguer → X) .......... input[checkbox] + label
+     [F-04] Reveal de seções ao scroll ............ animation-timeline: view()
+     [F-05] Entrada do hero (palavras, CTAs) ...... keyframes on-load + delays
+     [F-06] Contadores odômetro (KPIs) ............ dígitos rolantes translateY
+     [F-07] Barras do gráfico: crescendo .......... keyframes scaleY + stagger
+     [F-08] Tooltip das barras .................... :hover/:focus + elemento .tip
+     [F-09] Abas da demonstração .................. input[radio] + label (~ irrm.)
+              ↳ painéis re-animam a cada troca ... display:none reinicia keyframes
+     [F-10] Fluxo de caixa: linhas se desenhando . pathLength=1 + dashoffset
+              ↳ zonas de leitura com tooltip ..... overlay .hot + :hover
+              ↳ destaque das curvas .............. :has(.hot:hover)
+     [F-11] Ícones que se redesenham no hover .... pathLength=1 + keyframe redraw
+     [F-12] Benefícios em accordion ............... <details>/<summary> + 0fr→1fr
+     [F-13] Micro-interações ...................... tilt/float do mockup, shine do
+              CTA, linhas de tabela, planilha "instável", underline da nav
+
+     ── COMPATIBILIDADE / FALLBACKS (progressive enhancement) ──────────────────
+     · Scroll-driven animations ([F-01/02/04]) → @supports; sem suporte
+       (Firefox atual) a página fica 100% estática e funcional.
+     · Odometer, barras, draw das linhas, tabs, accordion, tooltips →
+       funcionam em TODOS os navegadores modernos (só CSS básico).
+     · prefers-reduced-motion → todas as animações decorativas colapsam
+       para o estado final; nada pisca, nada flutua.
+     · Animações restritas a transform/opacity (composição na GPU).
+
+     ── SEÇÕES ─────────────────────────────────────────────────────────────────
+     01 Hero · 02 Problema→Solução (antes/depois) · 03 Funcionalidades
+     04 Interface (demo com abas) · 05 Segurança+Benefícios · 06 CTA · 07 Rodapé
+     ═══════════════════════════════════════════════════════════════════════ -->
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formação em Cibersegurança | CyberGuard Academy</title>
-    <!-- Google Fonts -->
+    <title>Valkore Desktop — Gestão financeira simples, organizada e profissional</title>
+    <meta name="description"
+        content="Conheça o Valkore Desktop: gestão financeira para empresas e autônomos. Controle receitas, despesas e fluxo de caixa com segurança e sem mensalidade.">
+    <meta property="og:title" content="Valkore Desktop — Gestão inteligente para seu negócio">
+    <meta property="og:description"
+        content="Gestão financeira simples, organizada e profissional. Controle suas receitas e despesas com segurança e visão clara do seu negócio.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="theme-color" content="#08090B">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%2308090B'/%3E%3Cpath d='M6 6.5 12 19 18 6.5' stroke='%23D4A72C' stroke-width='2.6' fill='none'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <!-- External CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- External JS -->
-    <script src="js/main.js" defer></script>
+    <!--<script src="js/main.js" defer></script>-->
 </head>
+
 <body>
 
-    <!-- Header Section -->
-    <header class="header" id="header">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <svg class="logo-icon" viewBox="0 0 24 24">
-                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8s0 0 0 0z"/>
-                </svg>
-                <span>CyberGuard</span>
-            </a>
-            
-            <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Abrir Menu">
-                <span class="hamburger"></span>
-            </button>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#topo" aria-label="Valkore Desktop — início">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5.5 6.5 12 19.5 18.5 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" pathLength="1"/></svg></span>
+      <span class="brand-name">VALKORE</span>
+      <span class="brand-sub">Desktop</span>
+    </a>
+    <!-- input invisível que controla o menu; o label é o hambúrguer -->
+    <input type="checkbox" id="navToggle" class="sr" aria-label="Abrir menu de navegação">
+    <div class="nav-wrap">
+      <nav class="nav-links">
+        <a href="#solucao">Solução</a>
+        <a href="#funcionalidades">Funcionalidades</a>
+        <a href="#interface">Interface</a>
+        <a href="#seguranca">Segurança</a>
+      </nav>
+    </div>
+    <label for="navToggle" class="nav-burger" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </label>
+  </div>
+</header>
 
-            <nav class="nav-links" id="navLinks">
-                <a href="#modulos">Conteúdo</a>
-                <a href="#para-quem">Para Quem É</a>
-                <a href="#instrutor">Instrutor</a>
-                <a href="#faq">Dúvidas</a>
-                <a href="#preco" class="btn btn-secondary mobile-only-btn">Área do Aluno</a>
-            </nav>
-            
-            <a href="#preco" class="btn btn-secondary desktop-only-btn">Área do Aluno</a>
+<main id="topo">
+
+<!-- ═══════════ 01 · HERO ═══════════
+     [F-05] entrada em cascata · [F-06] odômetro · [F-07] barras · [F-08] tooltips -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Valkore Desktop · v1.0</p>
+    <h1 class="h1"><span class="w">Conheça</span> <span class="w">o</span> <span class="w">Valkore<span class="gold-dot">.</span></span></h1>
+    <p class="lead">Gestão financeira simples, organizada e profissional.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="#interface">Conheça o Valkore
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#funcionalidades">Ver funcionalidades</a>
+    </div>
+    <p class="hero-proof">Sem mensalidade <i>•</i> Backup a cada 20 minutos <i>•</i> Dados no seu computador</p>
+
+    <!-- Mockup do dashboard: [F-13] levita + inclina no hover -->
+    <div class="hero-visual">
+      <div class="floaty">
+        <div class="window" role="img" aria-label="Dashboard do Valkore Desktop: entradas de R$ 245.300, saídas de R$ 129.500 e saldo de R$ 115.800, com gráfico de fluxo financeiro e lançamentos recentes">
+          <div class="titlebar">
+            <div class="tb-dots"><span></span><span></span><span></span></div>
+            <p class="tb-title">Valkore Desktop — Painel Financeiro</p>
+            <div class="tb-actions">
+              <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8"/></svg>
+              <svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="2" width="8" height="8" rx="1"/></svg>
+              <svg class="tb-x" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7"/></svg>
+            </div>
+          </div>
+          <div class="window-body">
+            <aside class="app-side">
+              <div class="app-brand">
+                <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5.5 6.5 12 19.5 18.5 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" pathLength="1"/></svg></span>
+                <b>VALKORE</b>
+              </div>
+              <nav class="app-nav">
+                <a class="active"><svg viewBox="0 0 24 24"><path d="M4 16.5a8 8 0 0 1 16 0"/><path d="M12 16.5l3.6-5.2"/><circle cx="12" cy="16.5" r="1.1"/></svg>Dashboard</a>
+                <a><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Lançamentos</a>
+                <a><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10.5 12.5h5M10.5 16h5"/></svg>Relatórios</a>
+                <a><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.1"/><path d="M12 3v2.4M12 18.6V21M3 12h2.4M18.6 12H21"/></svg>Configurações</a>
+              </nav>
+              <div class="app-company">
+                <div class="st"><i></i><span class="caption" style="font-size:.56rem">Ativa</span></div>
+                <b>Fonsantos Comércio LTDA</b>
+                <span>CNPJ 12.345.678/0001-90</span>
+              </div>
+            </aside>
+            <div class="app-main">
+              <div class="app-header">
+                <div>
+                  <p class="app-title">Visão geral</p>
+                  <p class="app-period">Janeiro — Junho 2026</p>
+                </div>
+                <span class="app-btn">+ Novo lançamento</span>
+              </div>
+              <!-- KPIs com odômetro: dígitos rolam até o valor. --d = dígito-alvo,
+                   --dl = atraso da coluna. -->
+              <div class="kpis">
+                <div class="kpi">
+                  <span class="kpi-label"><i class="r"></i>Entradas</span>
+                  <span class="kpi-value c-receita"><span class="pre">R$</span><span class="odo odo-load"><span class="dg" style="--d:2;--dl:.05s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:4;--dl:.11s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:5;--dl:.17s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="ds">.</span><span class="dg" style="--d:3;--dl:.23s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:0;--dl:.29s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:0;--dl:.35s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span></span></span>
+                  <span class="kpi-delta up num">+8,4% no semestre</span>
+                </div>
+                <div class="kpi">
+                  <span class="kpi-label"><i class="d"></i>Saídas</span>
+                  <span class="kpi-value c-despesa"><span class="pre">R$</span><span class="odo odo-load"><span class="dg" style="--d:1;--dl:.05s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:2;--dl:.11s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:9;--dl:.17s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="ds">.</span><span class="dg" style="--d:5;--dl:.23s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:0;--dl:.29s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:0;--dl:.35s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span></span></span>
+                  <span class="kpi-delta down num">−3,2% no semestre</span>
+                </div>
+                <div class="kpi">
+                  <span class="kpi-label"><i class="g"></i>Saldo</span>
+                  <span class="kpi-value"><span class="pre">R$</span><span class="odo odo-load"><span class="dg" style="--d:1;--dl:.05s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:1;--dl:.11s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:5;--dl:.17s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="ds">.</span><span class="dg" style="--d:8;--dl:.23s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:0;--dl:.29s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:0;--dl:.35s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span></span></span>
+                  <span class="kpi-delta up num">+18,6% no semestre</span>
+                </div>
+              </div>
+              <div class="app-grid">
+                <!-- [F-07/F-08] barras crescem com stagger; hover/focus
+                     em cada mês revela o tooltip com os valores -->
+                <section class="chart-card">
+                  <div class="cc-head">
+                    <p class="cc-title">Fluxo financeiro</p>
+                    <div class="cc-legend">
+                      <span><i style="background:var(--vk-receita)"></i>Entradas</span>
+                      <span><i style="background:var(--vk-despesa)"></i>Saídas</span>
+                    </div>
+                  </div>
+                  <div class="bars-wrap">
+                    <div class="bars bars-load">
+                        <div class="bar-col" tabindex="0" style="--he:70.9;--hs:40.2;--d:0ms"><i class="be"></i><i class="bs"></i><span class="tip"><b>jan</b><i><b class="tr">34.200</b> · <b class="ts">19.400</b></i></span></div>
+                        <div class="bar-col" tabindex="0" style="--he:80.1;--hs:43.6;--d:70ms"><i class="be"></i><i class="bs"></i><span class="tip"><b>fev</b><i><b class="tr">38.600</b> · <b class="ts">21.000</b></i></span></div>
+                        <div class="bar-col" tabindex="0" style="--he:86.7;--hs:50.4;--d:140ms"><i class="be"></i><i class="bs"></i><span class="tip"><b>mar</b><i><b class="tr">41.800</b> · <b class="ts">24.300</b></i></span></div>
+                        <div class="bar-col" tabindex="0" style="--he:77.6;--hs:41.7;--d:210ms"><i class="be"></i><i class="bs"></i><span class="tip"><b>abr</b><i><b class="tr">37.400</b> · <b class="ts">20.100</b></i></span></div>
+                        <div class="bar-col" tabindex="0" style="--he:93.6;--hs:47.3;--d:280ms"><i class="be"></i><i class="bs"></i><span class="tip"><b>mai</b><i><b class="tr">45.100</b> · <b class="ts">22.800</b></i></span></div>
+                        <div class="bar-col" tabindex="0" style="--he:100;--hs:45.4;--d:350ms"><i class="be"></i><i class="bs"></i><span class="tip"><b>jun</b><i><b class="tr">48.200</b> · <b class="ts">21.900</b></i></span></div>
+                    </div>
+                  </div>
+                  <div class="bar-labels"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span></div>
+                </section>
+                <section class="list-card">
+                  <div class="cc-head"><p class="cc-title">Lançamentos recentes</p></div>
+                  <div class="tx"><span class="tx-desc">Venda de produtos</span><span class="tx-cat">Vendas</span><span class="tx-val num c-receita">+ R$ 8.450</span></div>
+                  <div class="tx"><span class="tx-desc">Aluguel da loja</span><span class="tx-cat">Fixas</span><span class="tx-val num c-despesa">− R$ 4.200</span></div>
+                  <div class="tx"><span class="tx-desc">Contrato recorrente</span><span class="tx-cat">Contratos</span><span class="tx-val num c-receita">+ R$ 6.800</span></div>
+                </section>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 02 · PROBLEMA → SOLUÇÃO ═══════════
+     Antes/depois lado a lado. Hover: a planilha "desalinha" e os erros piscam;
+     o card Valkore se firma (narração visual sem uma linha de JS). -->
+<section class="section" id="solucao">
+  <div class="container">
+    <header class="psx-head" data-reveal>
+      <p class="eyebrow" style="justify-content:center"><b>02</b>Do caos ao controle</p>
+      <h2 class="h2">A planilha de sempre.<br>O controle que faltava.</h2>
+      <p class="lead" style="margin-top:16px">Caderno, planilha quebrada e decisões no escuro — ou tudo em um lugar só, organizado e atualizado. O Valkore Desktop é o seu negócio com visão clara: sem instalação complicada, sem dependências externas, sem mensalidade.</p>
+    </header>
+    <div class="psx">
+      <div class="psx-card antes" data-reveal role="img" aria-label="Exemplo de planilha financeira desorganizada, com erros de fórmula e anotações soltas">
+        <div class="psx-bar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10.5 12.5h5M10.5 16h5"/></svg>
+          <p class="name">financas_2025_final_v3_(2).xlsx</p>
+          <span class="sheet-stale"><i></i>há 47 dias</span>
+        </div>
+        <div class="sheet-body">
+          <div class="thead"></div><div class="thead">DATA</div><div class="thead">DESCRIÇÃO</div><div class="thead">VALOR</div>
+          <div class="rownum">1</div><div>12/05</div><div>venda cliente ??</div><div>1.240,00</div>
+          <div class="rownum">2</div><div>13/05</div><div>pagar fornecedor (marcos)</div><div class="err">#VALOR!</div>
+          <div class="rownum">3</div><div class="q">1?/06</div><div>entrou uma coisa aí</div><div class="q">8??0,00</div>
+          <div class="rownum">4</div><div class="blank">—</div><div class="strike">reunião 15h não esquecer</div><div class="blank">—</div>
+        </div>
+      </div>
+      <p class="psx-vs" data-reveal="1" aria-hidden="true">vs</p>
+      <div class="psx-card depois" data-reveal="1" role="img" aria-label="Os mesmos lançamentos organizados no Valkore Desktop, com categorias e saldo do dia">
+        <div class="psx-bar">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5.5 6.5 12 19.5 18.5 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" pathLength="1"/></svg></span>
+          <b>VALKORE</b>
+        </div>
+        <div class="tidy-row"><span class="tidy-desc">Venda de produtos</span><span class="tx-cat">Vendas</span><span class="tidy-val num c-receita">+ R$ 8.450</span></div>
+        <div class="tidy-row"><span class="tidy-desc">Contrato recorrente</span><span class="tx-cat">Contratos</span><span class="tidy-val num c-receita">+ R$ 6.800</span></div>
+        <div class="tidy-row"><span class="tidy-desc">Aluguel da loja</span><span class="tx-cat">Fixas</span><span class="tidy-val num c-despesa">− R$ 4.200</span></div>
+        <div class="tidy-row"><span class="tidy-desc">Fornecedores</span><span class="tx-cat">Operacionais</span><span class="tidy-val num c-despesa">− R$ 7.350</span></div>
+        <div class="tidy-foot">Saldo do dia <b class="c-receita num">+ R$ 3.700</b></div>
+      </div>
+    </div>
+    <p class="lead psx-caption" data-reveal="2">Seu negócio organizado. Suas decisões mais inteligentes.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 03 · FUNCIONALIDADES ═══════════
+     [F-11] no hover de cada card, o ícone linear se apaga e se redesenha
+     (traços com pathLength="1" + keyframe vk-redraw). -->
+<section class="section features" id="funcionalidades">
+  <div class="container">
+    <header class="sec-head center" data-reveal>
+      <p class="eyebrow"><b>03</b>Funcionalidades</p>
+      <h2 class="h2">Tudo o que o caixa precisa.<br>Nada que distraia.</h2>
+    </header>
+    <div class="feat-grid">
+      <div class="feat" data-reveal>
+        <span class="feat-ico"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1.5" pathLength="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-3h4v3" pathLength="1"/></svg></span>
+        <h3>Cadastro empresarial completo</h3><p>Empresa, CNPJ e contexto do negócio registrados com ordem.</p>
+      </div>
+      <div class="feat" data-reveal>
+        <span class="feat-ico"><svg viewBox="0 0 24 24"><path d="M8 4.5V14M5.5 11.5 8 14l2.5-2.5" pathLength="1"/><path d="M16 19.5V10M13.5 12.5 16 10l2.5 2.5" pathLength="1"/></svg></span>
+        <h3>Receitas e despesas</h3><p>Lançamentos em segundos, com categoria, data e descrição.</p>
+      </div>
+      <div class="feat" data-reveal>
+        <span class="feat-ico"><svg viewBox="0 0 24 24"><path d="M4 16.5a8 8 0 0 1 16 0" pathLength="1"/><path d="M12 16.5l3.6-5.2" pathLength="1"/><circle cx="12" cy="16.5" r="1.1" pathLength="1"/></svg></span>
+        <h3>Dashboard em tempo real</h3><p>Entradas, saídas e saldo sempre atualizados — sem fórmulas.</p>
+      </div>
+      <div class="feat" data-reveal>
+        <span class="feat-ico"><svg viewBox="0 0 24 24"><path d="M3.5 16.5l4-5.5 3.5 3 4-6.5 5.5 4" pathLength="1"/><path d="M3.5 20.5h17" pathLength="1"/></svg></span>
+        <h3>Controle de fluxo de caixa</h3><p>Para onde o dinheiro vai, mês a mês, num gráfico que se explica.</p>
+      </div>
+      <div class="feat" data-reveal>
+        <span class="feat-ico"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z" pathLength="1"/><path d="M14 3v4h4" pathLength="1"/><path d="M10 12.5h6M10 16h6" pathLength="1"/><path d="M9.3 9l1 1 1.8-2" pathLength="1"/></svg></span>
+        <h3>Relatórios em PDF</h3><p>Prontos para imprimir ou compartilhar com o contador.</p>
+      </div>
+      <div class="feat" data-reveal>
+        <span class="feat-ico"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7" ry="2.7" pathLength="1"/><path d="M5 5.5v6c0 1.5 3.1 2.7 7 2.7s7-1.2 7-2.7v-6" pathLength="1"/><path d="M5 11.5v6c0 1.5 3.1 2.7 7 2.7s7-1.2 7-2.7v-6" pathLength="1"/></svg></span>
+        <h3>Backup automático</h3><p>Cópias de segurança a cada 20 minutos. Você trabalha; ele guarda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 04 · INTERFACE (DEMONSTRAÇÃO) ═══════════
+     [F-09] Abas SEM JavaScript: três radios escondidos antes da tablist.
+     O radio marcado (~ irmão) exibe o painel correspondente e acende a label.
+     Toda vez que um painel sai de display:none, suas animações internas
+     (odômetro, barras, desenho das linhas) reiniciam — trocar de aba
+     re-anima a tela inteira. Setas do teclado navegam entre abas (radios
+     nativos, mantidos focáveis via .sr). -->
+<section class="section interface" id="interface">
+  <div class="container">
+    <header class="sec-head center" data-reveal>
+      <p class="eyebrow"><b>04</b>A interface</p>
+      <h2 class="h2">Limpa de propósito.</h2>
+      <p class="lead" style="margin-top:16px">Verde para o que entra, laranja para o que sai, informação onde ela precisa estar. Explore a interface do Valkore Desktop:</p>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <span class="hero-badge">⚡ Formação Prática em Cibersegurança</span>
-                <h1>Domine a Segurança Cibernética e Torne-se Imune às Ameaças do Mercado</h1>
-                <p>Aprenda a simular ataques reais, defender infraestruturas críticas e construir uma carreira de alta demanda e salários acima da média no mercado global.</p>
-                
-                <a href="#preco" class="btn btn-primary">Quero Garantir Minha Vaga</a>
+    <div class="demo-wrap" data-reveal>
+      <div class="window">
+        <!-- controladores das abas (escondidos, focáveis) -->
+        <input type="radio" name="vk-tab" id="tab-dash" class="sr" checked>
+        <input type="radio" name="vk-tab" id="tab-lan" class="sr">
+        <input type="radio" name="vk-tab" id="tab-flu" class="sr">
 
-                <!-- VSL / Video Placeholder -->
-                <div class="video-container" id="videoContainer">
-                    <div class="video-placeholder" id="playVideoBtn">
-                        <div class="play-btn"></div>
-                        <p>Clique para assistir à apresentação do curso (5 min)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Social Proof & Stats Banner -->
-        <section class="stats">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <h3>+2.500</h3>
-                        <p>Alunos Formados</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>4.9/5 ★</h3>
-                        <p>Avaliação da Comunidade</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>100%</h3>
-                        <p>Prático em Lab Real</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>R$ 12k+</h3>
-                        <p>Média Salarial na Área</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Modules Section -->
-        <section class="modules" id="modulos">
-            <div class="container">
-                <h2 class="section-title">O Que Você Vai <span class="highlight-cyan">Aprender</span></h2>
-                <p class="section-subtitle">Uma jornada estruturada do básico ao avançado com técnicas utilizadas por Hackers Éticos do mercado corporativo.</p>
-                
-                <div class="modules-grid">
-                    <article class="module-card">
-                        <div class="module-icon">01</div>
-                        <h3>Fundamentos & Defesa de Redes</h3>
-                        <p>Arquitetura de redes, protocolos seguros, análise de tráfego com Wireshark e configuração avançada de Firewalls.</p>
-                    </article>
-
-                    <article class="module-card">
-                        <div class="module-icon">02</div>
-                        <h3>Ethical Hacking & Pentest</h3>
-                        <p>Metodologias de teste de invasão, recon, footprinting e utilização avançada do Kali Linux na prática.</p>
-                    </article>
-
-                    <article class="module-card">
-                        <div class="module-icon">03</div>
-                        <h3>Análise de Vulnerabilidades</h3>
-                        <p>Identificação e exploração de brechas em aplicações Web (OWASP Top 10), SQL Injection, XSS e CSRF.</p>
-                    </article>
-
-                    <article class="module-card">
-                        <div class="module-icon">04</div>
-                        <h3>Forense & Incident Response</h3>
-                        <p>Como detectar invasões em tempo real, isolar ameaças, analisar artefatos de malware e mitigar ataques de Ransomware.</p>
-                    </article>
-
-                    <article class="module-card">
-                        <div class="module-icon">05</div>
-                        <h3>Segurança em Nuvem (Cloud Security)</h3>
-                        <p>Proteção de ambientes AWS e Azure, gestão de identidades (IAM) e segurança em containers Docker/Kubernetes.</p>
-                    </article>
-
-                    <article class="module-card">
-                        <div class="module-icon">06</div>
-                        <h3>DevSecOps & Codificação Segura</h3>
-                        <p>Integração de testes de segurança automatizados em pipelines CI/CD e boas práticas de desenvolvimento imune.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Target Audience Section -->
-        <section class="target" id="para-quem">
-            <div class="container">
-                <h2 class="section-title">Para Quem É Este <span class="highlight-cyan">Treinamento</span></h2>
-                <p class="section-subtitle">Projetado especificamente para quem deseja crescer rapidamente na área de tecnologia.</p>
-
-                <div class="target-list">
-                    <div class="target-item">
-                        <span class="check-icon">✓</span>
-                        <span><strong>Desenvolvedores Web/Software</strong> que desejam aprender a criar sistemas seguros e migrar para a área de DevSecOps.</span>
-                    </div>
-                    <div class="target-item">
-                        <span class="check-icon">✓</span>
-                        <span><strong>Profissionais de TI e Infraestrutura</strong> em busca de transição de carreira para Cyber Security com foco em altas remunerações.</span>
-                    </div>
-                    <div class="target-item">
-                        <span class="check-icon">✓</span>
-                        <span><strong>Iniciantes em Tecnologia</strong> com conhecimento básico em computação que desejam começar do zero na área mais promissora da década.</span>
-                    </div>
-                    <div class="target-item">
-                        <span class="check-icon">✓</span>
-                        <span><strong>Analistas de Suporte e Redes</strong> querendo conquistar certificações internacionais e posições de liderança técnica.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Instructor Section -->
-        <section class="instructor" id="instrutor">
-            <div class="container">
-                <div class="instructor-box">
-                    <img src="https://via.placeholder.com/300x300/1C2541/00B4D8?text=Especialista" alt="Foto do Instrutor" class="instructor-img">
-                    <div class="instructor-info">
-                        <h3>Carlos Andrade</h3>
-                        <p class="instructor-role">Head of Cybersecurity & Principal Pentester</p>
-                        <p class="instructor-bio">Com mais de 12 anos de experiência liderando equipes de resposta a incidentes em multinacionais financeiras, já identificou e corrigiu falhas críticas em grandes plataformas internacionais. Atualmente atua como consultor de segurança e já formou mais de 2.500 especialistas.</p>
-                        <div class="credentials">
-                            <span class="badge">CISSP</span>
-                            <span class="badge">CEH Master</span>
-                            <span class="badge">OSCP Certified</span>
-                            <span class="badge">+12 anos Exp.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing Section -->
-        <section class="pricing" id="preco">
-            <div class="container">
-                <div class="pricing-card">
-                    <span class="pricing-tag">Condição Especial de Lançamento</span>
-                    <p class="price-anchor">De R$ 1.997,00 por apenas</p>
-                    <div class="price-main">12x R$ 49,70</div>
-                    <p class="price-subtitle">ou R$ 497,00 à vista no PIX</p>
-
-                    <ul class="benefits-list">
-                        <li><span class="highlight-green">✓</span> Acesso vitalício ao curso e atualizações</li>
-                        <li><span class="highlight-green">✓</span> Acesso ao Laboratório Virtual Prático</li>
-                        <li><span class="highlight-green">✓</span> Comunidade Privada no Discord com MENTORIA</li>
-                        <li><span class="highlight-green">✓</span> Certificado de Conclusão Reconhecido (80h)</li>
-                        <li><span class="highlight-green">✓</span> Bônus: Modelo de Currículo para Vagas Internacionais</li>
-                    </ul>
-
-                    <a href="#" class="btn btn-primary btn-full">Garantir Minha Vaga Agora</a>
-
-                    <div class="guarantee-box">
-                        <span>🛡️</span>
-                        <span><strong>Garantia Incondicional de 7 Dias.</strong> Teste sem riscos. Se não gostar, devolvemos 100% do valor.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="faq" id="faq">
-            <div class="container">
-                <h2 class="section-title">Perguntas <span class="highlight-cyan">Frequentes</span></h2>
-                <p class="section-subtitle">Tire suas dúvidas antes de dar o próximo passo na sua carreira.</p>
-
-                <div class="faq-list">
-                    <details class="faq-item">
-                        <summary>Preciso ter conhecimento prévio em programação?</summary>
-                        <p>Não é obrigatório. O curso aborda a lógica necessária e os scripts essenciais do zero. Ter conhecimento básico de informática e interesse pela área é o suficiente para acompanhar os conteúdos.</p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>Como funcionam os laboratórios práticos?</summary>
-                        <p>Disponibilizamos ambientes virtuais prontos e seguros para download, além de servidores em nuvem onde você poderá praticar simulações reais de ataque e defesa de forma totalmente controlada.</p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>Por quanto tempo terei acesso ao treinamento?</summary>
-                        <p>O seu acesso é vitalício. Você pode assistir às aulas no seu ritmo, quantas vezes quiser, e terá acesso a todas as atualizações futuras sem nenhum custo adicional.</p>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary>O certificado é reconhecido pelo mercado?</summary>
-                        <p>Sim. Ao completar 100% dos módulos e desafios práticos, você receberá um certificado de 80 horas detalhando todas as competências técnicas adquiridas para enriquecer seu currículo e LinkedIn.</p>
-                    </details>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="#">Termos de Uso</a>
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Suporte ao Aluno</a>
-            </div>
-            <p>&copy; 2026 CyberGuard Academy. Todos os direitos reservados. Este site não é afiliado ao Facebook ou qualquer entidade do Meta.</p>
+        <div class="titlebar">
+          <div class="tb-dots"><span></span><span></span><span></span></div>
+          <p class="tb-title">Valkore Desktop — Demonstração</p>
+          <div class="tb-actions">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8"/></svg>
+            <svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="2" width="8" height="8" rx="1"/></svg>
+            <svg class="tb-x" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7"/></svg>
+          </div>
         </div>
-    </footer>
 
+        <div class="demo-tabs" role="tablist" aria-label="Telas do Valkore Desktop">
+          <label for="tab-dash" class="tab" role="tab">Dashboard</label>
+          <label for="tab-lan" class="tab" role="tab">Lançamentos</label>
+          <label for="tab-flu" class="tab" role="tab">Fluxo de caixa</label>
+        </div>
+
+        <div class="panels">
+
+          <!-- Painel DASHBOARD — odômetro e barras disparam ao entrar na
+               viewport (animation-timeline: view) -->
+          <section class="tab-panel" id="panel-dash" role="tabpanel" aria-label="Dashboard">
+            <div class="kpis">
+              <div class="kpi">
+                <span class="kpi-label"><i class="r"></i>Entradas · junho</span>
+                <span class="kpi-value c-receita"><span class="pre">R$</span><span class="odo"><span class="dg" style="--d:4"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:8"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="ds">.</span><span class="dg" style="--d:2"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:0"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:0"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span></span></span>
+              </div>
+              <div class="kpi">
+                <span class="kpi-label"><i class="d"></i>Saídas · junho</span>
+                <span class="kpi-value c-despesa"><span class="pre">R$</span><span class="odo"><span class="dg" style="--d:2"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:1"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="ds">.</span><span class="dg" style="--d:9"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:0"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:0"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span></span></span>
+              </div>
+              <div class="kpi">
+                <span class="kpi-label"><i class="g"></i>Saldo do mês</span>
+                <span class="kpi-value"><span class="pre">R$</span><span class="odo"><span class="dg" style="--d:2"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:6"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="ds">.</span><span class="dg" style="--d:3"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:0"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:0"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span></span></span>
+              </div>
+            </div>
+            <div class="app-grid" style="margin-top:12px">
+              <section class="chart-card">
+                <div class="cc-head">
+                  <p class="cc-title">Entradas × Saídas · semestre</p>
+                  <div class="cc-legend">
+                    <span><i style="background:var(--vk-receita)"></i>Entradas</span>
+                    <span><i style="background:var(--vk-despesa)"></i>Saídas</span>
+                  </div>
+                </div>
+                <div class="bars-wrap">
+                    <div class="bars bars-view">
+                    <div class="bar-col" tabindex="0" style="--he:70.9;--hs:40.2"><i class="be"></i><i class="bs"></i><span class="tip"><b>jan</b><i><b class="tr">34.200</b> · <b class="ts">19.400</b></i></span></div>
+                    <div class="bar-col" tabindex="0" style="--he:80.1;--hs:43.6"><i class="be"></i><i class="bs"></i><span class="tip"><b>fev</b><i><b class="tr">38.600</b> · <b class="ts">21.000</b></i></span></div>
+                    <div class="bar-col" tabindex="0" style="--he:86.7;--hs:50.4"><i class="be"></i><i class="bs"></i><span class="tip"><b>mar</b><i><b class="tr">41.800</b> · <b class="ts">24.300</b></i></span></div>
+                    <div class="bar-col" tabindex="0" style="--he:77.6;--hs:41.7"><i class="be"></i><i class="bs"></i><span class="tip"><b>abr</b><i><b class="tr">37.400</b> · <b class="ts">20.100</b></i></span></div>
+                    <div class="bar-col" tabindex="0" style="--he:93.6;--hs:47.3"><i class="be"></i><i class="bs"></i><span class="tip"><b>mai</b><i><b class="tr">45.100</b> · <b class="ts">22.800</b></i></span></div>
+                    <div class="bar-col" tabindex="0" style="--he:100;--hs:45.4"><i class="be"></i><i class="bs"></i><span class="tip"><b>jun</b><i><b class="tr">48.200</b> · <b class="ts">21.900</b></i></span></div>
+                    </div>
+                </div>
+                <div class="bar-labels"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span></div>
+              </section>
+              <section class="chart-card">
+                <div class="cc-head"><p class="cc-title">Resumo do semestre</p></div>
+                <div class="tx"><span class="tx-desc">Entradas</span><span class="tx-val num c-receita">R$ 245.300</span></div>
+                <div class="tx"><span class="tx-desc">Saídas</span><span class="tx-val num c-despesa">R$ 129.500</span></div>
+                <div class="tx"><span class="tx-desc">Saldo acumulado</span><span class="tx-val num">R$ 115.800</span></div>
+                <div class="tx"><span class="tx-desc">Média mensal de saldo</span><span class="tx-val num c-gold">R$ 19.300</span></div>
+              </section>
+            </div>
+          </section>
+
+          <!-- Painel LANÇAMENTOS — o odômetro (odo-load) re-roda a cada
+               abertura da aba, pois o painel volta de display:none -->
+          <section class="tab-panel" id="panel-lan" role="tabpanel" aria-label="Lançamentos" hidden>
+            <div class="pt-head">
+              <div>
+                <p class="pt-title">Lançamentos <span>Junho 2026</span></p>
+                <p class="pt-total c-receita"><span class="odo odo-load"><span class="dg" style="--d:1;--dl:.05s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:9;--dl:.11s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="ds">.</span><span class="dg" style="--d:1;--dl:.17s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:4;--dl:.23s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span><span class="dg" style="--d:0;--dl:.29s"><i>0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</i></span></span></p>
+              </div>
+              <span class="app-btn">+ Novo lançamento</span>
+            </div>
+            <div class="pt-row th"><span class="pt-desc">Descrição</span><span>Categoria</span><span class="pt-date">Data</span><span class="pt-val">Valor</span></div>
+            <div class="pt-row"><span class="pt-desc">Venda de produtos</span><span class="chip">Vendas</span><span class="pt-date">12 jun</span><span class="pt-val num c-receita">+ R$ 8.450,00</span></div>
+            <div class="pt-row"><span class="pt-desc">Fornecedores — Mercantil Prime</span><span class="chip">Operacionais</span><span class="pt-date">08 jun</span><span class="pt-val num c-despesa">− R$ 7.350,00</span></div>
+            <div class="pt-row"><span class="pt-desc">Contrato recorrente — Delta Serviços</span><span class="chip">Contratos</span><span class="pt-date">10 jun</span><span class="pt-val num c-receita">+ R$ 6.800,00</span></div>
+            <div class="pt-row"><span class="pt-desc">Folha de pagamento</span><span class="chip">Pessoal</span><span class="pt-date">05 jun</span><span class="pt-val num c-despesa">− R$ 6.400,00</span></div>
+            <div class="pt-row"><span class="pt-desc">Venda online</span><span class="chip">Vendas</span><span class="pt-date">08 jun</span><span class="pt-val num c-receita">+ R$ 5.900,00</span></div>
+            <div class="pt-row"><span class="pt-desc">Aluguel da loja</span><span class="chip">Fixas</span><span class="pt-date">03 jun</span><span class="pt-val num c-despesa">− R$ 4.200,00</span></div>
+            <div class="pt-foot"><span>18 lançamentos em junho</span><b class="c-receita">Saldo do mês · R$ 26.300</b></div>
+          </section>
+
+          <!-- Painel FLUXO DE CAIXA — [F-10]
+               a) curvas se desenham (pathLength=1 + vk-draw) ao abrir a aba
+               b) 12 zonas .hot sobre o gráfico: guia, pontos e tooltip do mês
+               c) :has(.hot:hover) engrossa as curvas durante a leitura -->
+          <section class="tab-panel" id="panel-flu" role="tabpanel" aria-label="Fluxo de caixa" hidden>
+            <div class="fluxo-head">
+              <p class="pt-title">Fluxo de caixa <span>Últimos 12 meses · R$ mil</span></p>
+              <div class="cc-legend">
+                <span><i style="background:var(--vk-receita)"></i>Entradas</span>
+                <span><i style="background:var(--vk-despesa)"></i>Saídas</span>
+              </div>
+            </div>
+            <div class="fluxo-chart">
+              <div class="hots" aria-hidden="false">
+                <div class="hot" style="left:1.18%"><i class="ent" style="top:44.2%"></i><i class="sai" style="top:63.4%"></i><span class="tip"><b>jul 2025</b><span class="r"><span>Entradas</span><b class="tr">26.800</b></span><span class="r"><span>Saídas</span><b class="ts">15.200</b></span><span class="r"><span>Saldo</span><b class="tr">+11.600</b></span></span></div>
+                <div class="hot" style="left:9.63%"><i class="ent" style="top:41.5%"></i><i class="sai" style="top:60.8%"></i><span class="tip"><b>ago 2025</b><span class="r"><span>Entradas</span><b class="tr">28.400</b></span><span class="r"><span>Saídas</span><b class="ts">16.800</b></span><span class="r"><span>Saldo</span><b class="tr">+11.600</b></span></span></div>
+                <div class="hot" style="left:18.09%"><i class="ent" style="top:37.2%"></i><i class="sai" style="top:58.1%"></i><span class="tip"><b>set 2025</b><span class="r"><span>Entradas</span><b class="tr">31.000</b></span><span class="r"><span>Saídas</span><b class="ts">18.400</b></span><span class="r"><span>Saldo</span><b class="tr">+12.600</b></span></span></div>
+                <div class="hot" style="left:26.54%"><i class="ent" style="top:32.6%"></i><i class="sai" style="top:56.1%"></i><span class="tip"><b>out 2025</b><span class="r"><span>Entradas</span><b class="tr">33.800</b></span><span class="r"><span>Saídas</span><b class="ts">19.600</b></span><span class="r"><span>Saldo</span><b class="tr">+14.200</b></span></span></div>
+                <div class="hot" style="left:34.99%"><i class="ent" style="top:38.5%"></i><i class="sai" style="top:60.1%"></i><span class="tip"><b>nov 2025</b><span class="r"><span>Entradas</span><b class="tr">30.200</b></span><span class="r"><span>Saídas</span><b class="ts">17.200</b></span><span class="r"><span>Saldo</span><b class="tr">+13.000</b></span></span></div>
+                <div class="hot" style="left:43.45%"><i class="ent" style="top:31.9%"></i><i class="sai" style="top:56.4%"></i><span class="tip"><b>dez 2025</b><span class="r"><span>Entradas</span><b class="tr">34.200</b></span><span class="r"><span>Saídas</span><b class="ts">19.400</b></span><span class="r"><span>Saldo</span><b class="tr">+14.800</b></span></span></div>
+                <div class="hot" style="left:51.90%"><i class="ent" style="top:24.6%"></i><i class="sai" style="top:53.8%"></i><span class="tip"><b>jan 2026</b><span class="r"><span>Entradas</span><b class="tr">38.600</b></span><span class="r"><span>Saídas</span><b class="ts">21.000</b></span><span class="r"><span>Saldo</span><b class="tr">+17.600</b></span></span></div>
+                <div class="hot" style="left:60.35%"><i class="ent" style="top:19.3%"></i><i class="sai" style="top:48.3%"></i><span class="tip"><b>fev 2026</b><span class="r"><span>Entradas</span><b class="tr">41.800</b></span><span class="r"><span>Saídas</span><b class="ts">24.300</b></span><span class="r"><span>Saldo</span><b class="tr">+17.500</b></span></span></div>
+                <div class="hot" style="left:68.81%"><i class="ent" style="top:26.6%"></i><i class="sai" style="top:55.3%"></i><span class="tip"><b>mar 2026</b><span class="r"><span>Entradas</span><b class="tr">37.400</b></span><span class="r"><span>Saídas</span><b class="ts">20.100</b></span><span class="r"><span>Saldo</span><b class="tr">+17.300</b></span></span></div>
+                <div class="hot" style="left:77.26%"><i class="ent" style="top:22.5%"></i><i class="sai" style="top:52.9%"></i><span class="tip"><b>abr 2026</b><span class="r"><span>Entradas</span><b class="tr">39.900</b></span><span class="r"><span>Saídas</span><b class="ts">21.500</b></span><span class="r"><span>Saldo</span><b class="tr">+18.400</b></span></span></div>
+                <div class="hot" style="left:85.71%"><i class="ent" style="top:13.8%"></i><i class="sai" style="top:50.8%"></i><span class="tip"><b>mai 2026</b><span class="r"><span>Entradas</span><b class="tr">45.100</b></span><span class="r"><span>Saídas</span><b class="ts">22.800</b></span><span class="r"><span>Saldo</span><b class="tr">+22.300</b></span></span></div>
+                <div class="hot" style="left:94.16%"><i class="ent" style="top:8.7%"></i><i class="sai" style="top:52.3%"></i><span class="tip"><b>jun 2026</b><span class="r"><span>Entradas</span><b class="tr">48.200</b></span><span class="r"><span>Saídas</span><b class="ts">21.900</b></span><span class="r"><span>Saldo</span><b class="tr">+26.300</b></span></span></div>
+              </div>
+              <svg viewBox="0 0 740 280" role="img" aria-label="Gráfico de fluxo de caixa dos últimos 12 meses: entradas em verde crescentes de 26.800 a 48.200; saídas em laranja entre 15.200 e 24.300">
+                <g class="grid">
+                  <line x1="40" x2="728" y1="248" y2="248" stroke="#292D33" stroke-opacity=".55"/><text x="31" y="251.5" text-anchor="end" font-size="10.5">0</text>
+                  <line x1="40" x2="728" y1="201.6" y2="201.6" stroke="#292D33" stroke-opacity=".55"/><text x="31" y="205" text-anchor="end" font-size="10.5">10</text>
+                  <line x1="40" x2="728" y1="155.2" y2="155.2" stroke="#292D33" stroke-opacity=".55"/><text x="31" y="158.5" text-anchor="end" font-size="10.5">20</text>
+                  <line x1="40" x2="728" y1="108.8" y2="108.8" stroke="#292D33" stroke-opacity=".55"/><text x="31" y="112" text-anchor="end" font-size="10.5">30</text>
+                  <line x1="40" x2="728" y1="62.4" y2="62.4" stroke="#292D33" stroke-opacity=".55"/><text x="31" y="65.5" text-anchor="end" font-size="10.5">40</text>
+                  <line x1="40" x2="728" y1="16" y2="16" stroke="#292D33" stroke-opacity=".55"/><text x="31" y="19.5" text-anchor="end" font-size="10.5">50</text>
+                </g>
+                <g font-size="10.5" text-anchor="middle">
+                  <text x="40" y="272">jul</text><text class="sx" x="102.5" y="272">ago</text><text x="165.1" y="272">set</text><text class="sx" x="227.6" y="272">out</text><text x="290.2" y="272">nov</text><text class="sx" x="352.7" y="272">dez</text><text x="415.3" y="272">jan</text><text class="sx" x="477.8" y="272">fev</text><text x="540.4" y="272">mar</text><text class="sx" x="602.9" y="272">abr</text><text x="665.5" y="272">mai</text><text class="sx" x="728" y="272">jun</text>
+                </g>
+                <polygon points="40,123.7 102.5,116.3 165.1,104.2 227.6,91.2 290.2,107.9 352.7,89.3 415.3,68.9 477.8,54.1 540.4,74.5 602.9,62.9 665.5,38.7 728,24.4 728,248 40,248" fill="rgba(47,191,113,.07)"/>
+                <polyline class="ent" points="40,123.7 102.5,116.3 165.1,104.2 227.6,91.2 290.2,107.9 352.7,89.3 415.3,68.9 477.8,54.1 540.4,74.5 602.9,62.9 665.5,38.7 728,24.4" fill="none" stroke="#2FBF71" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" pathLength="1"/>
+                <polyline class="sai" points="40,177.5 102.5,170.1 165.1,162.6 227.6,157.1 290.2,168.2 352.7,158 415.3,150.6 477.8,135.2 540.4,154.7 602.9,148.2 665.5,142.2 728,146.4" fill="none" stroke="#E68A2E" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" pathLength="1"/>
+              </svg>
+            </div>
+            <div class="fluxo-stats">
+              <div class="fs"><p class="cap">Melhor mês de entradas</p><b class="num c-receita">R$ 48.200</b><span>jun 2026</span></div>
+              <div class="fs"><p class="cap">Média mensal de entradas</p><b class="num">R$ 36.280</b><span>últimos 12 meses</span></div>
+              <div class="fs"><p class="cap">Saldo acumulado</p><b class="num c-receita">R$ 197.200</b><span>entradas − saídas</span></div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+      <p class="demo-note">Interface do Valkore Desktop v1.0 — dados de demonstração. Passe o cursor sobre os gráficos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 05 · SEGURANÇA + BENEFÍCIOS ═══════════
+     Segurança: cards com ícones que se redesenham ([F-11]).
+     Benefícios: accordion nativo <details> ([F-12]) — clique para expandir. -->
+<section class="section security" id="seguranca">
+  <div class="container">
+    <header class="sec-head center" data-reveal>
+      <p class="eyebrow"><b>05</b>Segurança & benefícios</p>
+      <h2 class="h2">Seus dados, protegidos por padrão.</h2>
+      <p class="lead" style="margin-top:16px">O Valkore roda no seu computador e nasce com a proteção ligada. Não é upgrade: é o ponto de partida.</p>
+    </header>
+    <div class="sec-grid">
+      <div class="sec-cell" data-reveal>
+        <span class="sec-ico"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2" pathLength="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4" pathLength="1"/><path d="M12 14.5v2" pathLength="1"/></svg></span>
+        <h3>Acesso por senha</h3><p>O aplicativo abre somente com a sua senha.</p>
+      </div>
+      <div class="sec-cell" data-reveal>
+        <span class="sec-ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.6-3 7.6-7 9-4-1.4-7-4.4-7-9V6l7-3z" pathLength="1"/><path d="M9.2 12l2 2 3.6-4" pathLength="1"/></svg></span>
+        <h3>Dados criptografados</h3><p>Informações financeiras guardadas de forma ilegível sem a sua chave.</p>
+      </div>
+      <div class="sec-cell" data-reveal>
+        <span class="sec-ico"><svg viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.2 5l-2.4 14" pathLength="1"/></svg></span>
+        <h3>Modo desenvolvedor bloqueado</h3><p>Mecanismos internos inacessíveis. Sem porta escondida.</p>
+      </div>
+      <div class="sec-cell" data-reveal>
+        <span class="sec-ico"><svg viewBox="0 0 24 24"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1" pathLength="1"/><path d="M3.5 3.5V9H9" pathLength="1"/><path d="M12 8v4.3l2.9 1.7" pathLength="1"/></svg></span>
+        <h3>Backup a cada 20 minutos</h3><p>Cópias automáticas enquanto você trabalha. Se algo acontecer, você recupera.</p>
+      </div>
+    </div>
+
+    <!-- [F-12] accordion nativo — <details>/<summary>, animado com a
+         técnica grid-template-rows: 0fr → 1fr. "+" vira "−" quando aberto. -->
+    <div class="bene" data-reveal>
+      <p class="eyebrow" style="justify-content:center;margin-bottom:28px"><b>+</b>Benefícios — clique para expandir</p>
+      <div class="bene-line">
+        <details class="bene-item">
+          <summary>
+            <span class="bene-num">01</span>
+            <h3>Organização financeira</h3>
+            <span class="bene-x" aria-hidden="true"></span>
+          </summary>
+          <div class="bene-body"><div class="bene-inner"><p>Rotina simples de lançamento: alguns minutos por dia e nada se perde.</p></div></div>
+        </details>
+        <details class="bene-item">
+          <summary>
+            <span class="bene-num">02</span>
+            <h3>Uma visão clara do seu negócio</h3>
+            <span class="bene-x" aria-hidden="true"></span>
+          </summary>
+          <div class="bene-body"><div class="bene-inner"><p>Entradas, saídas e saldo em tempo real, de cima — como o caixa deve ser visto.</p></div></div>
+        </details>
+        <details class="bene-item">
+          <summary>
+            <span class="bene-num">03</span>
+            <h3>Decisões melhores</h3>
+            <span class="bene-x" aria-hidden="true"></span>
+          </summary>
+          <div class="bene-body"><div class="bene-inner"><p>Você decide com base no que aconteceu, não no que lembra.</p></div></div>
+        </details>
+        <details class="bene-item">
+          <summary>
+            <span class="bene-num">04</span>
+            <h3>Controle sem complicação</h3>
+            <span class="bene-x" aria-hidden="true"></span>
+          </summary>
+          <div class="bene-body"><div class="bene-inner"><p>Feito para quem entende do próprio negócio — não para quem precisa entender de finanças.</p></div></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 06 · CTA FINAL ═══════════
+     Botão com pulso dourado contínuo + brilho que o atravessa ([F-13]). -->
+<section class="cta" id="cta">
+  <div class="container cta-inner" data-reveal>
+    <h2>Organize suas finanças. Tenha uma visão clara do seu negócio.</h2>
+    <a class="btn btn-gold btn-pulse" href="#topo">Conheça o Valkore
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <p class="cta-note">Sem mensalidade <i>•</i> Sem servidor <i>•</i> Sem surpresa</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════ 07 · RODAPÉ ═══════════ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <a class="brand" href="#topo" aria-label="Valkore Desktop — voltar ao início">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5.5 6.5 12 19.5 18.5 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" pathLength="1"/></svg></span>
+        <span class="brand-name">VALKORE</span>
+        <span class="brand-sub">Desktop</span>
+      </a>
+      <p class="foot-tag">Valkore Desktop — Gestão inteligente para seu negócio.</p>
+      <p class="foot-copy">© 2026 Fonsantos Tecnologias • Valkore v1.0</p>
+    </div>
+  </div>
+</footer>
+<!-- ═══════════ 08 · ATENDIMENTO (widget flutuante) ═══════════
+     [F-15] Botão no canto inferior direito → painel com duas opções:
+     · Chat com atendente .... perguntas frequentes, resposta na hora
+     · Chamar no WhatsApp ..... link direto wa.me (TROQUE O NÚMERO!)
+     Controles CSS puros: #chatToggle abre/fecha · #optMenu/#optChat
+     alternam as vistas · q1–q3 revelam respostas. Zero JavaScript. -->
+<input type="checkbox" id="chatToggle" class="sr" aria-label="Abrir atendimento">
+
+<section class="chat-panel" role="dialog" aria-label="Atendimento Valkore">
+  <header class="chat-head">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5.5 6.5 12 19.5 18.5 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></span>
+    <div>
+      <b>Atendimento Valkore</b>
+      <span class="chat-status"><i></i>Online agora</span>
+    </div>
+  </header>
+
+  <input type="radio" name="vk-chat" id="optMenu" class="sr" checked>
+  <input type="radio" name="vk-chat" id="optChat" class="sr">
+
+  <div class="chat-menu chat-view">
+    <!-- ⚠️ TROQUE 5511900000000 pelo número real: 55 + DDD + número -->
+    <a class="chat-opt wa" href="https://wa.me/5511900000000?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20Valkore%20Desktop." target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z" pathLength="1"/><path d="M9.2 8.7c.3-.4.7-.4.9-.4.3 0 .5.2.7.6l.6 1.3c.1.3 0 .5-.2.7l-.4.5c-.1.2-.1.3 0 .5.3.6 1.5 1.8 2.1 2.1.2.1.4.1.5-.1l.4-.4c.2-.2.4-.2.7-.1l1.3.6c.4.2.6.4.6.7 0 .7-.5 1.4-1.2 1.6-.9.3-2.6-.2-4.2-1.6-1.5-1.3-2.3-2.8-2.4-3.9 0-.8.3-1.6.6-2Z" pathLength="1"/></svg></span>
+      <span><span class="t">Chamar no WhatsApp</span><span class="s">Converse direto com a equipe</span></span>
+    </a>
+    <label class="chat-opt" for="optChat">
+      <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 4a8 8 0 0 0-6.9 12L4 20l4.2-1A8 8 0 1 0 12 4Z" pathLength="1"/><path d="M9 11.5h.01M12 11.5h.01M15 11.5h.01" pathLength="1"/></svg></span>
+      <span><span class="t">Chat com atendente</span><span class="s">Perguntas frequentes, resposta na hora</span></span>
+    </label>
+    <p class="chat-note caption">Atendimento humano · dias úteis, 9h às 18h</p>
+  </div>
+
+  <div class="chat-convo chat-view">
+    <label class="back" for="optMenu">‹ Voltar às opções</label>
+    <div class="bubble-in">
+      <span class="avatar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5.5 6.5 12 19.5 18.5 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></span>
+      <p class="msg">Olá! Sou a equipe Valkore. Toque em uma pergunta ou, se preferir, chame no WhatsApp.</p>
+    </div>
+    <input type="radio" name="vk-q" id="q1" class="sr">
+    <input type="radio" name="vk-q" id="q2" class="sr">
+    <input type="radio" name="vk-q" id="q3" class="sr">
+    <div class="chat-chips">
+      <label class="chip-q" for="q1">Tem mensalidade?</label>
+      <label class="chip-q" for="q2">Precisa de internet?</label>
+      <label class="chip-q" for="q3">Serve para autônomo?</label>
+    </div>
+    <div class="chat-answers">
+      <div class="qa"><p class="msg"><span class="txt">Não. Você paga uma vez e usa para sempre — sem mensalidade, sem servidor, sem surpresa.</span><span class="typing"><i></i><i></i><i></i></span></p></div>
+      <div class="qa"><p class="msg"><span class="txt">Não. O Valkore roda no seu computador e seus dados ficam com você, com backup automático a cada 20 minutos.</span><span class="typing"><i></i><i></i><i></i></span></p></div>
+      <div class="qa"><p class="msg"><span class="txt">Sim. O Valkore é feito para empresas e autônomos que querem organização financeira sem complicação.</span><span class="typing"><i></i><i></i><i></i></span></p></div>
+    </div>
+    <a class="chat-wa" href="https://wa.me/5511900000000?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20Valkore%20Desktop." target="_blank" rel="noopener">Prefere falar com uma pessoa? Chame no WhatsApp →</a>
+  </div>
+</section>
+
+<label for="chatToggle" class="chat-fab" aria-hidden="true">
+  <svg class="ic-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  <svg class="ic-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+</label>
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     NOTAS DE MANUTENÇÃO
+     · Nenhuma linha de JavaScript neste arquivo — toda interação é CSS.
+     · Para trocar os valores do odômetro: altere --d de cada .dg (dígito-alvo)
+       e mantenha o bloco interno 0–9 intacto.
+     · Para novos dados no fluxo de caixa: recalcule points das polylines e
+       as posições left/top das zonas .hot (viewBox de referência: 740×280,
+       área de plotagem x:40→728 · y:16→248 · escala 50.000 = 100%).
+     · Animações scroll-driven ([F-01/02/04]) exigem Chromium 115+ / Safari 26;
+       Firefox recebe a versão estática (documentado no cabeçalho).
+     ═══════════════════════════════════════════════════════════════════════ -->
 </body>
 </html>
