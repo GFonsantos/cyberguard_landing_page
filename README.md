@@ -1,6 +1,6 @@
 # 🚀 Valkore Desktop
 
-> Uma frase concisa explicando o objetivo principal e a proposta do site.
+> Sistema desktop de gestão empresarial desenvolvido para simplificar e centralizar a administração de pequenos negócios.
 
 ![Preview do Site](https://gfonsantos.github.io/cyberguard_landing_page/)
 
@@ -19,7 +19,7 @@
 
 ## 💻 Sobre o Projeto
 
-O **Valkore Desktop** foi criado com a finalidade de [descrever o objetivo do site, o público-alvo ou o problema que ele resolve].
+O **Valkore Desktop** foi criado com a finalidade de oferecer uma solução completa de gestão para pequenos empreendedores, centralizando informações da empresa, cadastro, categorias, receitas, despesas, financeiro e indicadores em um único sistema, de forma simples e organizada..
 
 🌐 **Acesse a aplicação em produção:** [link-do-seu-site.com](https://link-do-seu-site.com)
 
@@ -27,30 +27,31 @@ O **Valkore Desktop** foi criado com a finalidade de [descrever o objetivo do si
 
 ## ✨ Funcionalidades
 
-- [x] Design responsivo (adaptado para Mobile e Desktop)
-- [x] Modo escuro/claro (*Dark/Light Mode*)
-- [x] Formulário de contato funcional
-- [ ] *[Próximo recurso planejado]*
+- [x] Cadastro e gerenciamento da empresa.
+- [x] Gestão de receitas e despesas.
+- [x] Organização por segmentos e categorias.
+- [x] Dashboard com indicadores e informações gerenciais.
+- [ ] Sistema de licenciamento, atualização e diagnóstico da aplicação.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Frontend:** HTML5, CSS3, JavaScript / React / Next.js
-- **Estilização:** Tailwind CSS / Styled Components
-- **Hospedagem:** Vercel / Netlify / GitHub Pages
+- VB.NET
+- .NET 10.0
+- Windows Forms
+- SQLite
+- Microsoft.Data.Sqlite
+- Visual Studio
+- Arquitetura em camadas: UI, SRV, REPO, INFRA e DOM.
 
 ---
 
 ## ⚙️ Como Executar o Projeto
 
-### Pré-requisitos
-Antes de começar, você precisará ter instalado em sua máquina:
-- [Git](https://git-scm.com)
-- [Node.js](https://nodejs.org/) *(caso utilize React, Vue, Next.js ou gerenciadores de pacote)*
-
-### Passo a passo
-
-1. **Clone este repositório:**
-   ```bash
-   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+Ter o Visual Studio 2026 instalado com suporte ao desenvolvimento para desktop .NET.
+Abrir a solução do projeto no Visual Studio.
+Restaurar as dependências NuGet.
+Compilar a solução.
+Executar o projeto Valkore Desktop.
+O sistema cria e configura automaticamente o banco de dados Valkore.db na primeira execução.
