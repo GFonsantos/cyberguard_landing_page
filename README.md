@@ -19,7 +19,7 @@
 
 ## 💻 Sobre o Projeto
 
-O **[Nome do Projeto]** foi criado com a finalidade de [descrever o objetivo do site, o público-alvo ou o problema que ele resolve].
+O **Valkore Desktop** foi criado com a finalidade de [descrever o objetivo do site, o público-alvo ou o problema que ele resolve].
 
 🌐 **Acesse a aplicação em produção:** [link-do-seu-site.com](https://link-do-seu-site.com)
 
