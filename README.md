@@ -1,4 +1,4 @@
-# 🚀 Valkore
+# 🚀 Valkore Desktop
 
 > Uma frase concisa explicando o objetivo principal e a proposta do site.
 
