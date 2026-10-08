@@ -11,7 +11,6 @@
 - Estrutura de Pastas: explicar a organização em UI, SRV, REPO, INFRA e DOM.
 - Como Contribuir: orientar sobre sugestões, identificação de problemas e contribuições ao código.
 - Licença: informar as condições de uso, distribuição e modificação do software.
-**Minha recomendação: vamos documentar o projeto de forma profissional, mas sem apresentar funcionalidades futuras como se já estivessem concluídas.**
 
 ---
 
