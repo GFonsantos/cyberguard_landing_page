@@ -2,7 +2,7 @@
 
 > Uma frase concisa explicando o objetivo principal e a proposta do site.
 
-![Preview do Site]([https://via.placeholder.com/800x400?text=Demonstra%C3%A7%C3%A3o+do+Site](https://gfonsantos.github.io/cyberguard_landing_page/))
+![Preview do Site](https://gfonsantos.github.io/cyberguard_landing_page/)
 
 ---
 
