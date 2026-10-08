@@ -1,4 +1,4 @@
-# 🚀 [Nome do Projeto]
+# 🚀 Valkore
 
 > Uma frase concisa explicando o objetivo principal e a proposta do site.
 
