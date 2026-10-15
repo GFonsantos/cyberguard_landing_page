@@ -44,7 +44,7 @@ O **Valkore Desktop** foi criado com a finalidade de oferecer uma solução comp
 
 ---
 
-Paleta de Cores
+## Paleta de Cores
 - Nome da Cor	HEX	Descrição Aproximada
 - Dourado	#D4A72C	Aproximação do Pantone 7406 C
 - Dourado Claro	#F0C85A	Aproximação do Pantone 7404 C
