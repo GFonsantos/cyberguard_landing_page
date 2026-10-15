@@ -2,7 +2,7 @@
 
 > Sistema desktop de gestão empresarial desenvolvido para simplificar e centralizar a administração de pequenos negócios.
 
-[Preview do Site](https://gfonsantos.github.io/cyberguard_landing_page/)
+[![Preview do Site](assets/Captura.png)](https://gfonsantos.github.io/cyberguard_landing_page/))
 
 - apresentar o Valkore Desktop e sua finalidade de facilitar a gestão de pequenos negócios.
 - Funcionalidades: cadastro da empresa, gestão financeira, categorias, dashboard e licenciamento.
