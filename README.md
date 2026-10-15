@@ -18,7 +18,7 @@
 
 O **Valkore Desktop** foi criado com a finalidade de oferecer uma solução completa de gestão para pequenos empreendedores, centralizando informações da empresa, cadastro, categorias, receitas, despesas, financeiro e indicadores em um único sistema, de forma simples e organizada..
 
-🌐 **Acesse a aplicação em produção:** [link-do-seu-site.com](https://gfonsantos.github.io/cyberguard_landing_page/)
+🌐 **Acesse a aplicação em produção:** [Acesse o Site](https://gfonsantos.github.io/cyberguard_landing_page/)
 
 ---
 
