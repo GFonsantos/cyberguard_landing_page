@@ -45,8 +45,8 @@ O **Valkore Desktop** foi criado com a finalidade de oferecer uma solução comp
 ---
 
 Paleta de Cores
-Nome da Cor	HEX	Descrição Aproximada
-Dourado	#D4A72C	Aproximação do Pantone 7406 C
-Dourado Claro	#F0C85A	Aproximação do Pantone 7404 C
-Fundo Escuro	#08090B	Preto Profundo
-Texto	#F7F7F5	Branco Suave
+- Nome da Cor	HEX	Descrição Aproximada
+- Dourado	#D4A72C	Aproximação do Pantone 7406 C
+- Dourado Claro	#F0C85A	Aproximação do Pantone 7404 C
+- Fundo Escuro	#08090B	Preto Profundo
+- Texto	#F7F7F5	Branco Suave
