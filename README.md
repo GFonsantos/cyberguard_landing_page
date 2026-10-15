@@ -43,12 +43,3 @@ O **Valkore Desktop** foi criado com a finalidade de oferecer uma solução comp
 - Arquitetura em camadas: UI, SRV, REPO, INFRA e DOM.
 
 ---
-
-## ⚙️ Como Executar o Projeto
-
-Ter o Visual Studio 2026 instalado com suporte ao desenvolvimento para desktop .NET.
-Abrir a solução do projeto no Visual Studio.
-Restaurar as dependências NuGet.
-Compilar a solução.
-Executar o projeto Valkore Desktop.
-O sistema cria e configura automaticamente o banco de dados Valkore.db na primeira execução.
